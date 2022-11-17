@@ -59,6 +59,19 @@ router.get(`/`, (req, res)=> {
   });
 
 // =======================================
+//              SANTA
+// =======================================
+router.get(`/santa`, (req, res)=> {
+  profile.find({}, (error, profileList)=> {
+      if (error) console.log('error')
+    res.render(`santa.ejs`, 
+    {
+      profileIndex: profileList
+    });
+  });
+});
+
+// =======================================
 //              EDIT
 // =======================================
 router.get('/:id/edit', (req, res)=>{
