@@ -23,6 +23,16 @@ const profileSeed = require('../models/seed.js');
 // =======================================
 //              NEW (ALWAYS ON TOP)
 // =======================================
+router.get('/new', (req, res)=>{
+  res.render('new.ejs');
+});
+
+
+router.post('/', (req, res)=>{
+profile.create(req.body, ()=>{
+  res.redirect("/");
+});
+});
 
 
 // =======================================
