@@ -9,21 +9,19 @@ if(process.env.PORT){
 	PORT = process.env.PORT
 }
 
+const bodyParser = require('body-parser')
+const methodOverride = require('method-override');
 
+app.use(express.urlencoded({extended: true}));
+app.use(express.static('public'))
+app.use(methodOverride('_method'));
 
-
-// const bodyParser = require('body-parser')
-// const methodOverride = require('method-override');
-
-// app.use(express.urlencoded({extended: true}));
-// app.use(express.static('public'))
-// app.use(methodOverride('_method'));
 
 // =======================================
 // Must remain on bottom
 // =======================================
-// const appRouter = require("./controllers/routes.js");
-// app.use("/",appRouter);
+const appRouter = require("./controllers/routes.js");
+app.use("/",appRouter);
 
 // mongoose.connection.dropDatabase();
 
@@ -36,9 +34,9 @@ mongoose.connect('mongodb+srv://vrtisjames:NZLKOh1gH62iZn0d@cluster0.ctjxurb.mon
   console.log('The connection with mongod is established')
 });
 
-app.get('/', (req, res)=>{
-	res.send('hi');
-})
+// app.get('/', (req, res)=>{
+// 	res.send('hi');
+// })
 
 app.listen(PORT, ()=>{
 	console.log('listening...');
