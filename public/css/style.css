@@ -18,6 +18,7 @@ img {
     background-color: #ACE1AF;
     border-radius: 10px;
     border: 1px solid black;
+    padding: 5px;
 }
 
 
@@ -32,4 +33,14 @@ ul {
 
   .edit, .delete {
     margin: 1em;
+  }
+
+  @media only screen and (max-width: 550px) {
+    #indexContainer{
+      margin: 0.3em 0 0.5em 0;
+  }
+  .spantext {
+    font-size: small;
+    padding: 2px;
+  }
   }
