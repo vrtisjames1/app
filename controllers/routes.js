@@ -4,16 +4,16 @@ const mongoose = require('mongoose');
 // =======================================
 //              MODELS and SEED Const
 // =======================================
-// const movie = require('../models/app.js');
-// const movieSeed = require('../models/seed.js');
+const profile = require('../models/app.js');
+const profileSeed = require('../models/seed.js');
 
 
 // =======================================
 //              SEED
 // =======================================
-// movie.create(movieSeed, (err, data) => {
+// profile.create(profileSeed, (err, data) => {
 //   if (err) console.log(err.message)
-//   console.log(`added provided movie data`)
+//   console.log(`added provided profiles data`)
 // })
 
 
@@ -34,8 +34,14 @@ const mongoose = require('mongoose');
 //              HOME
 // =======================================
 router.get(`/`, (req, res)=> {
-    res.render(`index.ejs`)
-});
+    profile.find({}, (error, profileList)=> {
+        if (error) console.log('error')
+      res.render(`index.ejs`, 
+      {
+        profileIndex: profileList
+      });
+    });
+  });
 
 // =======================================
 //              EDIT
