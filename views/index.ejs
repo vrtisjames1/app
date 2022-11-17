@@ -59,6 +59,13 @@
                                 <p><b>Quote Known For:</b> "<%=profileIndex[i].funFact%>"</p>
                             </td>
 
+                            <!-- Delete Person -->
+                        <td>
+                            <form action="/<%=profileIndex[i].id; %>?_method=DELETE" method="POST">
+                                <input type="submit" value="DELETE" class="btn btn-danger btn-sm"/>
+                            </form>
+                        </td>
+
 
                         </tr>
                  <%   } %>
