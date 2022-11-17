@@ -48,6 +48,7 @@
     "iconv-lite": "^0.4.24",
     "ieee754": "^1.2.1",
     "inherits": "^2.0.4",
+    "install": "^0.13.0",
     "ip": "^2.0.0",
     "ipaddr.js": "^1.9.1",
     "jake": "^10.8.5",
@@ -108,5 +109,13 @@
   },
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "npm init npm i",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vrtisjames1/app.git"
+  },
+  "bugs": {
+    "url": "https://github.com/vrtisjames1/app/issues"
+  },
+  "homepage": "https://github.com/vrtisjames1/app#readme"
 }
