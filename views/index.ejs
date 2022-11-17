@@ -33,11 +33,27 @@
                  <%   for (let i = 0; i < profileIndex.length; i++) { %>
 
                         <tr id="lines">
+
+                            <!-- Image display -->
+                                <td id="Image">
+                                    <img src=<%=profileIndex[i].image%>>
+                                </td>
+
+                            <!-- name and link -->
                             <td id="name">
                                 <a href="/<%=profileIndex[i].id; %>">
                                     <%=profileIndex[i].name%>
                                 </a>
                             </td>
+
+
+
+                            <!-- funfact -->
+                            <td id="funfact">
+                                <p><b>Quote Known For:</b> "<%=profileIndex[i].funFact%>"</p>
+                            </td>
+
+
                         </tr>
                  <%   } %>
 

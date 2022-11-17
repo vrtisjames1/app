@@ -5,10 +5,11 @@ const Schema = mongoose.Schema; // create a shorthand for the mongoose Schema co
 const profileSchema = new Schema({
     name: {type: String},
     spouse: {type: String},
-    image: {type: String},
+    image: String,
     wishList: [{type: String}],
     funFact: {type: String},
     favSong: {type: String},
+    email: String,
     });
 
     const profile = mongoose.model('Profile', profileSchema);

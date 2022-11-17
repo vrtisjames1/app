@@ -51,5 +51,15 @@ router.get(`/`, (req, res)=> {
 // =======================================
 //              SHOW
 // =======================================
+router.get('/:id', (req, res)=>{
+  profile.findById(req.params.id, (err, foundProfile)=>{ 
+    res.render(
+    'show.ejs',
+    {
+      profileIndex: foundProfile
+    }
+  );
+});
+});
 
 module.exports = router;
