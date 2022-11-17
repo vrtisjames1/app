@@ -33,8 +33,10 @@
                  <%   for (let i = 0; i < profileIndex.length; i++) { %>
 
                         <tr id="lines">
-                            <td>
-                                <%=profileIndex[i].name%>
+                            <td id="name">
+                                <a href="/<%=profileIndex[i].id; %>">
+                                    <%=profileIndex[i].name%>
+                                </a>
                             </td>
                         </tr>
                  <%   } %>
