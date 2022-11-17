@@ -29,6 +29,7 @@ router.get('/new', (req, res)=>{
 
 
 router.post('/', (req, res)=>{
+  req.body.wishList = req.body.wishList.split(",")
 profile.create(req.body, ()=>{
   res.redirect("/");
 });
@@ -38,7 +39,11 @@ profile.create(req.body, ()=>{
 // =======================================
 //              DELETE
 // =======================================
-
+router.delete('/:id', (req, res)=>{
+  profile.findByIdAndRemove(req.params.id, (err, data)=>{
+      res.redirect('/');//redirect back to fruits index
+  });
+});
 
 // =======================================
 //              HOME
@@ -56,7 +61,16 @@ router.get(`/`, (req, res)=> {
 // =======================================
 //              EDIT
 // =======================================
-
+router.get('/:id/edit', (req, res)=>{
+  profile.findById(req.params.id, (err, foundProfile)=>{ 
+      res.render(
+      'edit.ejs',
+      {
+        profileIndex: foundProfile
+      }
+    );
+  });
+});
 
 // =======================================
 //              SHOW
@@ -70,6 +84,13 @@ router.get('/:id', (req, res)=>{
     }
   );
 });
+});
+
+router.put('/:id', (req, res)=>{
+  req.body.wishList = req.body.wishList.split(",")
+  profile.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedModel)=>{
+      res.redirect(`/`);
+  });
 });
 
 module.exports = router;

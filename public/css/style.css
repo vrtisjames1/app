@@ -1,11 +1,35 @@
-img {
-    max-width: 150px;
+html, body {
+ background-color: #F08080;
 }
 
+img {
+    max-width: 150px;
+    margin: 1em;
+}
 
+#indexContainer{
+    margin: 1em 3em 2em 3em;
+}
+
+#box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ACE1AF;
+    border-radius: 10px;
+    border: 1px solid black;
+}
 
 
 ul {
     list-style: none;
     padding-left: 0;
+  }
+  #btnDiv{
+    display: flex;
+    flex-direction: row;
+  }
+
+  .edit, .delete {
+    margin: 1em;
   }

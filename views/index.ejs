@@ -23,7 +23,7 @@
         <script src="./search.js"></script> -->
 
     </head>
-    <body>
+    <body id="indexContainer">
 
         <div class="container-fluid">
 
@@ -42,28 +42,30 @@
 
                             <!-- Image display -->
                                 <td id="Image">
-                                    <img src=<%=profileIndex[i].image%>>
+                                    <div id="box">
+                                        <a href="/<%=profileIndex[i].id; %>">
+                                            <%=profileIndex[i].name%>
+                                        </a>
+                                        <img src=<%=profileIndex[i].image%>>
+
+                                        <p><b>Quote Known For:</b> "<%=profileIndex[i].funFact%>"</p>
+                                        <div id="btnDiv">
+                                            <a class="btn btn-warning btn-sm edit" href="/<%=profileIndex[i].id; %>/edit">EDIT</a>
+                                            <form action="/<%=profileIndex[i].id; %>?_method=DELETE" method="POST">
+                                                <input type="submit" value="DELETE" class="btn btn-outline-danger btn-sm delete"/>
+                                            </form>
+                                        </div>
+
+                                    </div>
+
                                 </td>
 
-                            <!-- name and link -->
-                            <td id="name">
-                                <a href="/<%=profileIndex[i].id; %>">
-                                    <%=profileIndex[i].name%>
-                                </a>
-                            </td>
-
-
-
-                            <!-- funfact -->
-                            <td id="funfact">
-                                <p><b>Quote Known For:</b> "<%=profileIndex[i].funFact%>"</p>
-                            </td>
-
                             <!-- Delete Person -->
+                        <td> 
+                            
+                        </td>
                         <td>
-                            <form action="/<%=profileIndex[i].id; %>?_method=DELETE" method="POST">
-                                <input type="submit" value="DELETE" class="btn btn-danger btn-sm"/>
-                            </form>
+
                         </td>
 
 
