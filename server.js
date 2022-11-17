@@ -2,14 +2,16 @@
 //              DEPENDENCIES
 // =======================================
 const express = require('express');
+const mongoose = require('mongoose');
 const app = express();
 let PORT = 3000;
 if(process.env.PORT){
 	PORT = process.env.PORT
 }
 
-// const port = 3000;
-// const mongoose = require('mongoose');
+
+
+
 // const bodyParser = require('body-parser')
 // const methodOverride = require('method-override');
 
@@ -30,9 +32,9 @@ if(process.env.PORT){
 //  and connectivity
 // =======================================
 
-// mongoose.connect('mongodb://localhost:27017/Movies', () => {
-//   console.log('The connection with mongod is established')
-// });
+mongoose.connect('mongodb+srv://vrtisjames:NZLKOh1gH62iZn0d@cluster0.ctjxurb.mongodb.net/?retryWrites=true&w=majority', () => {
+  console.log('The connection with mongod is established')
+});
 
 app.get('/', (req, res)=>{
 	res.send('hi');
