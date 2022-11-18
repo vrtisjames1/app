@@ -73,6 +73,7 @@ router.get(`/santa`, (req, res)=> {
 
 let matchArray = null;
 let nameArray = null;
+let quit = null;
 
 const array = [] 
 for (let i = 0; i < profileList.length; i++) { 
@@ -82,38 +83,50 @@ array.push({name: profileList[i].name,spouse: profileList[i].spouse})
   res.locals.array = array;
   console.log(array)
 
-nameArray = []
+const start = () =>{
+  nameArray = []
   for (let i = 0; i < profileList.length; i++) { 
     nameArray.push(array[i].name)
    }
 
 ///match array
 matchArray = []
-
-for (let i = 0; i < profileList.length; i++) { 
- matchArray.push(array[i].name)
+  for (let i = 0; i < profileList.length; i++) { 
+  matchArray.push(array[i].name)
+  }
 }
+
+start();
 
 const partners = () =>{
-
+quit = 0;
   for (let i = 0; i < profileList.length; i++) { 
+    
+     while((matchArray[i] === array[i].name) || (matchArray[i] === array[i].spouse)){
+      quit ++
+      let num = null;
+      
+      num = Math.floor(Math.random()* nameArray.length);
 
-if ((matchArray[i] == array[i].name) || (matchArray[i] == array[i].spouse)){
-  while((matchArray[i] == array[i].name) || (matchArray[i] == array[i].spouse)){
-    num = Math.floor(Math.random()* nameArray.length)
+      matchArray[i] = nameArray[num];
+    
+      console.log(matchArray)
 
-    matchArray[i] = nameArray[num]
-  
+      if (quit === 10){
+        return;
+      }
+      }
+      nameArray.splice(nameArray.indexOf((matchArray[i])), 1)
     }
-    nameArray.splice(nameArray.indexOf((matchArray[i])), 1)
-  } else {
-    return;
-  }
-
   } 
-  console.log(matchArray)
-}
+  
 partners();
+
+
+
+if((matchArray[profileList.length - 1] === array[profileList.length - 1].name) || (matchArray[profileList.length - 1] === array[profileList.length - 1].spouse)){
+  location.reload();
+}
 
 
 
