@@ -67,6 +67,18 @@ router.get(`/`, (req, res)=> {
 // =======================================
 router.get(`/santa`, (req, res)=> {
   profile.find({}, (error, profileList)=> {
+      if (error) console.log('error')
+    res.render(`santa.ejs`, 
+    {
+      profileIndex: profileList
+    });
+  });
+});
+// =======================================
+//              RESULTS
+// =======================================
+router.get(`/santa/results`, (req, res)=> {
+  profile.find({}, (error, profileList)=> {
 
 //////////
 ////array of names
@@ -100,8 +112,9 @@ start();
 
 const partners = () =>{
 quit = 0;
+
+////////////////////
   for (let i = 0; i < profileList.length; i++) { 
-    
      while((matchArray[i] === array[i].name) || (matchArray[i] === array[i].spouse)){
       quit ++
       let num = null;
@@ -112,31 +125,35 @@ quit = 0;
     
       console.log(matchArray)
 
-      if (quit === 10){
+      if (quit === 20){
         return;
       }
       }
       nameArray.splice(nameArray.indexOf((matchArray[i])), 1)
     }
   } 
+
   
 partners();
 
+let results = null;
 
-
-if((matchArray[profileList.length - 1] === array[profileList.length - 1].name) || (matchArray[profileList.length - 1] === array[profileList.length - 1].spouse)){
-  location.reload();
+if ((matchArray[profileList.length - 1] == array[profileList.length - 1].name) || (matchArray[profileList.length - 1] == array[profileList.length - 1].spouse))
+{
+  results = "Draw Again";
+} else {
+  results = "Congrats the name has been decided"
 }
 
-
+res.locals.results = results;
 
  ///////////////
  //////render
-    res.render(`santa.ejs`, 
+    res.render(`results.ejs`, 
     {
       profileIndex: profileList,
-      myArray: array
-
+      myArray: array,
+      myResults: results
     });
   });
 });
