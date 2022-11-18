@@ -15,18 +15,29 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
         <link rel="stylesheet" href="./css/style.css">
-        <!-- JQUERY -->
-        <!-- <script
-        src="https://code.jquery.com/jquery-3.2.1.min.js"
-        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-        crossorigin="anonymous"></script>
-        <script src="./search.js"></script> -->
-
+        
+         <!-- JQUERY -->
+         <script
+         src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+         <script src="./santa.js"></script>
+         
     </head>
     <body id="indexContainer">
         <a href="/"><button class="btn btn-secondary back-button" >BACK</button></a>
+        <button class="btn btn-secondary back-button" id="santa">Draw For Names</button>
         <div class="container-fluid">
 
-        </div>
+            <h2> Santa List </h2>
+
+            <% const array = [] %>
+            <%   for (let i = 0; i < profileIndex.length; i++) { %>
+
+                <% array.push({name: profileIndex[i].name, spouse: profileIndex[i].spouse, email: profileIndex[i].email}) %>
+
+                <h2><%=array[i].name%> <%=array[i].spouse%> <%=array[i].email%></h2>
+
+                <% } %>
+<script> </script>
+
     </body>
     </html>

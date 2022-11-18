@@ -1,12 +1,12 @@
 const express = require("express");
 const router = express.Router();
 const mongoose = require('mongoose');
+const { db } = require("../models/app.js");
 // =======================================
 //              MODELS and SEED Const
 // =======================================
 const profile = require('../models/app.js');
 const profileSeed = require('../models/seed.js');
-
 
 // =======================================
 //              SEED

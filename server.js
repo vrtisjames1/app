@@ -16,7 +16,6 @@ app.use(express.urlencoded({extended: true}));
 app.use(express.static('public'))
 app.use(methodOverride('_method'));
 
-
 // =======================================
 // Must remain on bottom
 // =======================================
