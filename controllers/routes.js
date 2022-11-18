@@ -85,6 +85,13 @@ router.get('/:id/edit', (req, res)=>{
   });
 });
 
+router.put('/:id', (req, res)=>{  
+  req.body.wishList = req.body.wishList.split(",")
+  profile.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedModel)=>{
+      res.redirect(`/`);
+  });
+});
+
 // =======================================
 //              SHOW
 // =======================================
