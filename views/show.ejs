@@ -13,7 +13,6 @@
         
 
         <!-- CSS -->
-
         <link rel="stylesheet" href="./css/style.css">
 
     </head>
@@ -51,10 +50,19 @@
                                 <h4 class="title">My Wish List</h4>
                                 <ul>
                                     <%  for (let j = 0; j < profileIndex.wishList.length; j++){ %>
+
+
+                                        <% if (/.com/.test(profileIndex.wishList[j]) == true) {%>
+                                            <a href="<%=profileIndex.wishList[j]; %>" target="<%=profileIndex.wishList[j]; %>">
+                                                GIFT LINK
+                                            </a>
+
+                                        <% } else {%>
                                         <li id="show">
                                         <%=profileIndex.wishList[j];%>
                                         </li>
                                     <% } %>  
+                                    <% } %> 
                                 </ul>
 
                                 <h4 class="showTitle">Fun Fact</h4>
