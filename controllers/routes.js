@@ -24,6 +24,9 @@ const profileSeed = require('../models/seed.js');
 //              NEW (ALWAYS ON TOP)
 // =======================================
 router.get('/new', (req, res)=>{
+  if(req.body.spouse == ``){
+    req.body.spouse = `none`
+  }
   res.render('new.ejs');
 });
 
@@ -62,6 +65,7 @@ router.get(`/`, (req, res)=> {
 //              SANTA
 // =======================================
 router.get(`/santa`, (req, res)=> {
+  console.log('hello')
   profile.find({}, (error, profileList)=> {
       if (error) console.log('error')
     res.render(`santa.ejs`, 

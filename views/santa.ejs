@@ -24,20 +24,19 @@
     </head>
     <body id="indexContainer">
         <a href="/"><button class="btn btn-secondary back-button" >BACK</button></a>
-        <button class="btn btn-secondary back-button" id="santa">Draw For Names</button>
+        <button class="btn btn-secondary back-button" id="santa-btn">Draw For Names</button>
         <div class="container-fluid">
 
-            <h2> Santa List </h2>
 
+            <h2> Santa List </h2>
             <% const array = [] %>
             <%   for (let i = 0; i < profileIndex.length; i++) { %>
 
                 <% array.push({name: profileIndex[i].name, spouse: profileIndex[i].spouse, email: profileIndex[i].email}) %>
 
-                <h2><%=array[i].name%> <%=array[i].spouse%> <%=array[i].email%></h2>
-
                 <% } %>
-<script> </script>
+<script>
 
+</script>
     </body>
     </html>

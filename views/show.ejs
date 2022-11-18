@@ -25,9 +25,8 @@
         <div class="container-fluid container">
 
 
-
                         <!-- name -->
-                        <h1 class="showName"><%=profileIndex.name;%></h1>           
+                                  <h1 class="showName"><%=profileIndex.name;%></h1> 
                          <!-- tags -->
                         <h3 class="tags">Quote: "<%=profileIndex.funFact;%>"<h3></h3>
 
@@ -50,13 +49,10 @@
                                 <h4 class="title">My Wish List</h4>
                                 <ul>
                                     <%  for (let j = 0; j < profileIndex.wishList.length; j++){ %>
-
-
                                         <% if (/.com/.test(profileIndex.wishList[j]) == true) {%>
                                             <a href="<%=profileIndex.wishList[j]%>" target="_blank">
                                                 GIFT LINK
                                             </a>
-
                                         <% } else {%>
                                         <li id="show">
                                         <%=profileIndex.wishList[j];%>

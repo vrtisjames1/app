@@ -1,21 +1,21 @@
-
-import { array } from './views/santa.ejs'
-$(() => {
-
-    
-
-    console.log(array)
-
-    // numArray = [];
-    
-    // const shuffle = () => {
-    
-    //     for (let i = profileIndex.length; i > 0; i--) {
-    //         num = num + i
-    //         numArray.push(num)
-    //     }
-    //     console.log(profileIndex.length)
-    // }
-
-    $('#santa').on('click', shuffle);
-    })
+// $(()=>{
+//     $.ajax({
+//         url:'http://localhost:3000'
+//     }).then(
+//         (data)=>{
+//             console.log('data');
+//         },
+//         ()=>{
+//             console.log('bad request');
+//         }
+//     );
+// })
+$.ajax({
+    url: "http://localhost:3000/",
+    type: 'GET',
+    dataType: 'json', // added data type
+    success: function(res) {
+        console.log(res);
+        alert(res);
+    }
+});

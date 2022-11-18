@@ -33,10 +33,6 @@ mongoose.connect('mongodb+srv://vrtisjames:NZLKOh1gH62iZn0d@cluster0.ctjxurb.mon
   console.log('The connection with mongod is established')
 });
 
-// app.get('/', (req, res)=>{
-// 	res.send('hi');
-// })
-
 app.listen(PORT, ()=>{
 	console.log('listening...');
 })

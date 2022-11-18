@@ -25,5 +25,14 @@ module.exports = [
         funFact: `Papa V's favorite in-law`,
         favSong: `Last Christmas`,
         email: `vrtis@hotmail.com`
+    },
+    {
+        name: `Krystal`,
+        spouse: `none`,
+        image: `https://i.imgur.com/mGB7laM.jpeg`,
+        wishList: [`world peace`,`anything black`,`poop`],
+        funFact: `Papa V's east favorite child`,
+        favSong: `Paint it Black`,
+        email: `loser@hotmail.com`
     }
 ]
