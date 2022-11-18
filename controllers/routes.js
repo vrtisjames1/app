@@ -6,6 +6,7 @@ const { db } = require("../models/app.js");
 //              MODELS and SEED Const
 // =======================================
 const profile = require('../models/app.js');
+const { indexOf } = require("../models/seed.js");
 const profileSeed = require('../models/seed.js');
 
 // =======================================
@@ -65,12 +66,64 @@ router.get(`/`, (req, res)=> {
 //              SANTA
 // =======================================
 router.get(`/santa`, (req, res)=> {
-  console.log('hello')
   profile.find({}, (error, profileList)=> {
-      if (error) console.log('error')
+
+//////////
+////array of names
+
+let matchArray = null;
+let nameArray = null;
+
+const array = [] 
+for (let i = 0; i < profileList.length; i++) { 
+array.push({name: profileList[i].name,spouse: profileList[i].spouse})
+  }
+
+  res.locals.array = array;
+  console.log(array)
+
+nameArray = []
+  for (let i = 0; i < profileList.length; i++) { 
+    nameArray.push(array[i].name)
+   }
+
+///match array
+matchArray = []
+
+for (let i = 0; i < profileList.length; i++) { 
+ matchArray.push(array[i].name)
+}
+
+const partners = () =>{
+
+  for (let i = 0; i < profileList.length; i++) { 
+
+if ((matchArray[i] == array[i].name) || (matchArray[i] == array[i].spouse)){
+  while((matchArray[i] == array[i].name) || (matchArray[i] == array[i].spouse)){
+    num = Math.floor(Math.random()* nameArray.length)
+
+    matchArray[i] = nameArray[num]
+  
+    }
+    nameArray.splice(nameArray.indexOf((matchArray[i])), 1)
+  } else {
+    return;
+  }
+
+  } 
+  console.log(matchArray)
+}
+partners();
+
+
+
+ ///////////////
+ //////render
     res.render(`santa.ejs`, 
     {
-      profileIndex: profileList
+      profileIndex: profileList,
+      myArray: array
+
     });
   });
 });
@@ -110,11 +163,6 @@ router.get('/:id', (req, res)=>{
 });
 });
 
-router.put('/:id', (req, res)=>{
-  req.body.wishList = req.body.wishList.split(",")
-  profile.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedModel)=>{
-      res.redirect(`/`);
-  });
-});
+
 
 module.exports = router;
