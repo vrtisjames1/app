@@ -99,7 +99,7 @@ let quit = null;
 
 const array = [] 
 for (let i = 0; i < profileList.length; i++) { 
-array.push({name: profileList[i].name.split(" ").join("").toLowerCase(),spouse: profileList[i].spouse.split(" ").join("").toLowerCase()})
+array.push({name: profileList[i].name.split(" ").join("").toLowerCase(),spouse: profileList[i].spouse.split(" ").join("").toLowerCase() ,email: profileList[i].email.split(" ").join("")})
   }
 
   res.locals.array = array;
