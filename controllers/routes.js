@@ -2,12 +2,15 @@ const express = require("express");
 const router = express.Router();
 const mongoose = require('mongoose');
 const { db } = require("../models/app.js");
+
 // =======================================
 //              MODELS and SEED Const
 // =======================================
 const profile = require('../models/app.js');
+
 const { indexOf } = require("../models/seed.js");
 const profileSeed = require('../models/seed.js');
+
 
 // =======================================
 //              SEED
@@ -15,6 +18,11 @@ const profileSeed = require('../models/seed.js');
 // profile.create(profileSeed, (err, data) => {
 //   if (err) console.log(err.message)
 //   console.log(`added provided profiles data`)
+// })
+
+// onoff.create(buttonSeed, (err, data) => {
+//   if (err) console.log(err.message)
+//   console.log(`added provided button data`)
 // })
 
 
@@ -62,6 +70,8 @@ router.get(`/`, (req, res)=> {
     });
   });
 
+
+
 // =======================================
 //              SANTA
 // =======================================
@@ -77,7 +87,7 @@ router.get(`/santa`, (req, res)=> {
 // =======================================
 //              RESULTS
 // =======================================
-router.get(`/santa/results`, (req, res)=> {
+router.get(`/results`, (req, res)=> {
   profile.find({}, (error, profileList)=> {
 
 //////////
@@ -125,7 +135,7 @@ quit = 0;
     
       console.log(matchArray)
 
-      if (quit === 20){
+      if (quit === 50){
         return;
       }
       }
@@ -193,6 +203,27 @@ router.get('/:id', (req, res)=>{
 });
 });
 
+
+// =======================================
+//              EDIT Button
+// =======================================
+router.get('/:id', (req, res)=>{
+  onoff.findById(req.params.id, (err, results)=>{ 
+      res.render(
+      'santa.ejs',
+      {
+        button: results
+      }
+    );
+  });
+});
+
+router.put('/:id', (req, res)=>{  
+  req.body.wishList = req.body.wishList.split(",")
+  onoff.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedModel)=>{
+      res.redirect(`/`);
+  });
+});
 
 
 module.exports = router;
