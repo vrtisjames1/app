@@ -45,9 +45,9 @@
                                         <a href="/<%=profileIndex[i].id; %>">
                                             Profile: <%=profileIndex[i].name%>
                                         </a>
-                                        <img src=<%=profileIndex[i].image%>>
+                                        <img class="showImg" src=<%=profileIndex[i].image%>>
 
-                                        <p><b>Quote Known For:</b> "<%=profileIndex[i].funFact%>"</p>
+                                        <p><b>My Fun Fact:</b> "<%=profileIndex[i].funFact%>"</p>
                                         <div id="btnDiv">
                                             <a class="btn btn-warning btn-sm edit" href="/<%=profileIndex[i].id; %>/edit">EDIT</a>
                                             <form action="/<%=profileIndex[i].id; %>?_method=DELETE" method="POST">
