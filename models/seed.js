@@ -21,18 +21,37 @@ module.exports = [
         name: `Emily`,
         spouse: `Jimmy`,
         image: `https://i.imgur.com/RkdpwLr.jpg`,
-        wishList: [`board games`,`sleeping bad`,`hiking pants`],
-        funFact: `Papa V's favorite in-law`,
-        favSong: `Last Christmas`,
-        email: `vrtis@hotmail.com`
+        wishList: [`Dog sweater for Zara`],
+        funFact: `Once you go alpaca you never go backa`,
+        favSong: `All I want for Christmas is a hippopotamus `,
+        email: `Testa_emily@yahoo.com`
     },
     {
         name: `Krystal`,
         spouse: `none`,
-        image: `https://i.imgur.com/mGB7laM.jpeg`,
+        image: `https://i.imgur.com/zV4FEWe.jpg`,
         wishList: [`world peace`,`anything black`,`poop`],
-        funFact: `Papa V's east favorite child`,
+        funFact: `Papa V's least favorite child`,
         favSong: `Paint it Black`,
         email: `loser@hotmail.com`
-    }
+    },
+    {
+        name: `Terri`,
+        spouse: `Amazing father`,
+        image: `https://i.imgur.com/pHjFlPU.jpg`,
+        wishList: [`Windchimes`,`sleepmask`,`calendar`,`sweater`],
+        funFact: `There are 10 body parts with 3 letters.`,
+        favSong: `All Christmas songs`,
+        email: `Vrtisterri@gmail.com`
+    },
+    {
+        name: `Amazing father`,
+        spouse: `Terri`,
+        image: `https://i.imgur.com/Tpl3ca0.jpg`,
+        wishList: [`Osprey Hydraulics Water Reservoir`,`White Sox New Era Black Authentic Collection On Field Low Profile Game 59FIFTY Fitted Hat 7 5/8`,`arhartt Men's Tall Size Force Tech Quarter-Zip Thermal Base Layer Long Sleeve Shirt large heavy weight`],
+        funFact: `In the course of an average lifetime, while sleeping you might eat around 70 assorted insects and 10 spiders, or more.`,
+        favSong: `White Christmas`,
+        email: `vrtis@hotmail.com`
+    },
+    
 ]
