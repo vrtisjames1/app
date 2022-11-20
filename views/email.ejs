@@ -24,15 +24,28 @@
                 <div class="wrapper animated bounceInLeft">
 
                   <div class="contact">
-                    <h3>Email Us</h3>
+                    <h3>Email Results</h3>
                     <form method="POST" action="send">
                       <p>
                         <label>Name</label>
-                        <input type="text" name="name">
+                        <input list="names" type="text" name="name" autocomplete="off">
+                        <datalist id="names" style="background-color:DodgerBlue">
+                          <% for (let i = 0; i < profileIndex.length; i++) { %>
+                              <option ><%=profileIndex[i].name%></option>
+                             
+                          <% } %>                 
+                        </datalist>
                       </p>
                       <p>
                         <label>Email Address</label>
-                        <input type="email" name="email">
+                        <input list="email" type="email" name="email" autocomplete="off">
+                        <datalist id="email" style="background-color:DodgerBlue">
+                          <% for (let i = 0; i < profileIndex.length; i++) { %>
+                              <option ><%=profileIndex[i].email%></option>
+                             
+                          <% } %>                 
+                        </datalist>
+                        
                       </p>
                       <p class="full">
                         <label>Message</label>
