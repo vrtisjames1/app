@@ -53,8 +53,8 @@ ul {
     flex-direction: row;
   }
 
-  .edit, .delete {
-    margin: 1em;
+  .edit {
+    margin-right: 8em;
   }
 
   @media only screen and (max-width: 550px) {
