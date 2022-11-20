@@ -35,7 +35,12 @@
                 
                     <div class="input-group mb-3">
                         <span class="input-group-text spantext" id="inputGroup-sizing-default">Spouse</span>
-                        <input class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" type="text" name="spouse" placeholder="Souse" value="<%=profileIndex.spouse%>"/><br/>
+                        <input list="spouses" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" type="text"  name="spouse" placeholder="Secret Santa partner restriction" value="<%=profileIndex.spouse%>"/><br/>
+                        <datalist id="spouses">
+                            <% for (let i = 0; i < profileIndex.length; i++) { %>
+                                <option><%=profileIndex[i].name%></option>
+                            <% } %>
+                          </datalist>
                     </div>
 
                 
@@ -47,7 +52,7 @@
                 
                     <div class="input-group mb-3">
                         <span class="input-group-text spantext" id="inputGroup-sizing-default">WishList</span>
-                        <input  class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" type="text" name="wishList" placeholder="Seperate items by using commas" value="<%=profileIndex.wishList%>"/><br/>
+                        <input  class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" type="text" name="wishList" placeholder="Seperate items and links by using commas" value="<%=profileIndex.wishList%>"/><br/>
                     </div>
 
                  

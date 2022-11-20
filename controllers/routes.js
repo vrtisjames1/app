@@ -32,11 +32,23 @@ const profileSeed = require('../models/seed.js');
 // =======================================
 //              NEW (ALWAYS ON TOP)
 // =======================================
-router.get('/new', (req, res)=>{
-  if(req.body.spouse == ``){
+// router.get('/new', (req, res)=>{
+//   if(req.body.spouse == ``){
+//     req.body.spouse = `none`
+//   }
+//   res.render('new.ejs');
+// });
+router.get(`/new`, (req, res)=> {
+  profile.find({}, (error, profileList)=> {
+      if(req.body.spouse == ``){
     req.body.spouse = `none`
   }
-  res.render('new.ejs');
+      if (error) console.log('error')
+    res.render(`new.ejs`, 
+    {
+      profileIndex: profileList
+    });
+  });
 });
 
 
@@ -204,26 +216,6 @@ router.get('/:id', (req, res)=>{
 });
 
 
-// =======================================
-//              EDIT Button
-// =======================================
-router.get('/:id', (req, res)=>{
-  onoff.findById(req.params.id, (err, results)=>{ 
-      res.render(
-      'santa.ejs',
-      {
-        button: results
-      }
-    );
-  });
-});
-
-router.put('/:id', (req, res)=>{  
-  req.body.wishList = req.body.wishList.split(",")
-  onoff.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedModel)=>{
-      res.redirect(`/`);
-  });
-});
 
 
 module.exports = router;
