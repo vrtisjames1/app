@@ -32,17 +32,10 @@ const profileSeed = require('../models/seed.js');
 // =======================================
 //              NEW (ALWAYS ON TOP)
 // =======================================
-// router.get('/new', (req, res)=>{
-//   if(req.body.spouse == ``){
-//     req.body.spouse = `none`
-//   }
-//   res.render('new.ejs');
-// });
+
 router.get(`/new`, (req, res)=> {
   profile.find({}, (error, profileList)=> {
-      if(req.body.spouse == ``){
-    req.body.spouse = `none`
-  }
+
       if (error) console.log('error')
     res.render(`new.ejs`, 
     {
@@ -54,7 +47,14 @@ router.get(`/new`, (req, res)=> {
 
 router.post('/', (req, res)=>{
   req.body.wishList = req.body.wishList.split(",")
+  if(req.body.spouse == "" ){
+    req.body.spouse = "none";
+      }
+      if(req.body.image == "" ){
+      req.body.image = "https://i.imgur.com/tdi3NGa.png";
+      }
 profile.create(req.body, ()=>{
+
   res.redirect("/");
 });
 });
