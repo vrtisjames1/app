@@ -25,10 +25,11 @@
 
                   <div class="contact">
                     <h3>Email Results</h3>
-                    <form method="POST" action="send">
+                    
+                    <form method="POST" action="/send">
                       <p>
                         <label>Name</label>
-                        <input list="names" type="text" name="name" autocomplete="off">
+                        <input list="names" type="text" name="name" autocomplete="off" placeholder="profile name">
                         <datalist id="names" style="background-color:DodgerBlue">
                           <% for (let i = 0; i < profileIndex.length; i++) { %>
                               <option ><%=profileIndex[i].name%></option>
@@ -38,7 +39,7 @@
                       </p>
                       <p>
                         <label>Email Address</label>
-                        <input list="email" type="email" name="email" autocomplete="off">
+                        <input list="email" type="email" name="email" autocomplete="off" placeholder="profile email address">
                         <datalist id="email" style="background-color:DodgerBlue">
                           <% for (let i = 0; i < profileIndex.length; i++) { %>
                               <option ><%=profileIndex[i].email%></option>
@@ -47,12 +48,9 @@
                         </datalist>
                         
                       </p>
+
                       <p class="full">
-                        <label>Message</label>
-                        <textarea name="message" rows="5"></textarea>
-                      </p>
-                      <p class="full">
-                        <button type="submit">Submit</button>
+                        <button type="submit" id="emailsubmit">Submit</button>
                       </p>
                     </form>
                   </div>

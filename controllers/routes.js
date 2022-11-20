@@ -16,8 +16,11 @@ const profile = require('../models/app.js');
 const { indexOf } = require("../models/seed.js");
 const profileSeed = require('../models/seed.js');
 const { match } = require("minimatch");
+const { append } = require("vary");
 
-
+// ARRAY FOR GENERATING SECRET SANTA PARTNERS
+let matchArray = [];
+let array = [];
 // =======================================
 //              SEED
 // =======================================
@@ -35,6 +38,54 @@ const { match } = require("minimatch");
 // =======================================
 //              ROUTES
 // =======================================
+// =======================================
+//              EMAIL
+// =======================================
+router.get(`/email`, (req, res)=> {
+  profile.find({}, (error, profileList)=> {
+    console.log(array)
+      if (error) console.log('error')
+    res.render(`email.ejs`, 
+    {
+      profileIndex: profileList
+    });
+  });
+});
+
+router.post('/send', (req, res)=>{
+  ////////////
+  const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: 'secretsantaclause1235@gmail.com',
+      pass: 'ymbu doyk mkyr refg' // naturally, replace both with your real credentials or an application-specific password
+    }
+  });
+ array;
+ let mailOptions = null;
+ for (let i = 0 ; i < array.length ; i++ ){
+  if (array[i].email == req.body.email){
+    mailOptions = {
+      from: `secretsantaclause1235@gmail.com`,
+      to: `${req.body.email}`,
+      subject: `Secret Santa Results`,
+      text: `${array[i].name} you will be buying a gift for ${array[i].partner}`
+    };
+  }
+ }
+
+  
+  transporter.sendMail(mailOptions, function(error, info){
+    if (error) {
+    console.log(error);
+    } else {
+      console.log('Email sent: ' + info.response);
+    }
+    res.redirect(`/email`);
+});
+});
+
+
 // =======================================
 //              NEW (ALWAYS ON TOP)
 // =======================================
@@ -75,6 +126,7 @@ router.delete('/:id', (req, res)=>{
   });
 });
 
+
 // =======================================
 //              HOME
 // =======================================
@@ -102,11 +154,14 @@ router.get(`/santa`, (req, res)=> {
     });
   });
 });
+
+
+
 // =======================================
 //              RESULTS
 // =======================================
 
-let matchArray = [];
+
 
 router.get(`/results`, (req, res)=> {
   profile.find({}, (error, profileList)=> {
@@ -118,9 +173,9 @@ let matchArray = null;
 let nameArray = null;
 let quit = null;
 
-const array = [] 
+array = [] 
 for (let i = 0; i < profileList.length; i++) { 
-array.push({name: profileList[i].name.split(" ").join("").toLowerCase(),spouse: profileList[i].spouse.split(" ").join("").toLowerCase() ,email: profileList[i].email.split(" ").join("")})
+array.push({name: profileList[i].name.split(" ").join("").toLowerCase(),spouse: profileList[i].spouse.split(" ").join("").toLowerCase() ,email: profileList[i].email.split(" ").join(""), partner: null})
   }
 
   res.locals.array = array;
@@ -154,12 +209,14 @@ quit = 0;
 
       matchArray[i] = nameArray[num];
     
-      console.log(matchArray)
+      // console.log(matchArray)
 
       if (quit === 50){
         return;
       }
       }
+      array[i].partner = matchArray[i]
+      console.log(array)
       nameArray.splice(nameArray.indexOf((matchArray[i])), 1)
     }
   } 
@@ -210,20 +267,6 @@ router.put('/:id', (req, res)=>{
 });
 
 // =======================================
-//              EMAIL
-// =======================================
-router.get(`/email`, (req, res)=> {
-  profile.find({}, (error, profileList)=> {
-
-      if (error) console.log('error')
-    res.render(`email.ejs`, 
-    {
-      profileIndex: profileList
-    });
-  });
-});
-
-// =======================================
 //              SHOW
 // =======================================
 router.get('/:id', (req, res)=>{
@@ -236,8 +279,5 @@ router.get('/:id', (req, res)=>{
   );
 });
 });
-
-
-
 
 module.exports = router;

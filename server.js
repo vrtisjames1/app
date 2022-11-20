@@ -31,7 +31,9 @@ app.use(methodOverride('_method'));
 // Must remain on bottom
 // =======================================
 const appRouter = require("./controllers/routes.js");
+const emailRouter = require("./controllers/email.js");
 app.use("/",appRouter);
+app.use("/",emailRouter);
 
 // mongoose.connection.dropDatabase();
 
