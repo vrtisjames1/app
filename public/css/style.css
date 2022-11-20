@@ -75,3 +75,50 @@ ul {
   }
 
 
+/* Model design */
+#model {
+  display: none;
+  background-color: rgba(255,255,255,0.4);
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  overflow: auto;
+  position: fixed;
+}
+
+#modalText {
+  background-color: white;
+  height: 350px;
+  width: 550px;
+  margin: auto;
+  padding: 15px;
+  margin-top: 15%;
+  border-radius: 25px;
+  border: 2px solid black;
+  box-shadow: 3px 3px black;
+}
+@media only screen and (max-width: 600px) {
+  #modalText {
+    background-color: white;
+    height: 400px;
+    width: 90%;
+    margin: auto;
+    padding: 15px;
+    margin-top: 15%;
+    border-radius: 25px;
+    border: 1px solid black;
+    box-shadow: 3px 3px black;
+  }
+
+  #intro, #typed-out {
+    font-size: 1em;
+  }
+}
+
+#closeBtn {
+  margin-top: 3em;
+  text-align: right;
+}
+

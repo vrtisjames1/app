@@ -13,8 +13,9 @@
         
         <!-- CSS -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-
         <link rel="stylesheet" href="./css/style.css">
+
+
 
 
     </head>
@@ -48,6 +49,7 @@
                                         <img class="showImg" src=<%=profileIndex[i].image%>>
 
                                         <p><b>My Fun Fact:</b> "<%=profileIndex[i].funFact%>"</p>
+                                        
                                         <div id="btnDiv">
                                             <a class="btn btn-warning btn-sm edit" href="/<%=profileIndex[i].id; %>/edit">EDIT</a>
                                             <form action="/<%=profileIndex[i].id; %>?_method=DELETE" method="POST">
@@ -55,13 +57,10 @@
                                             </form>
                                         </div>
 
+
                                     </div>
-
                                 </td>
-
                             <!-- Delete Person -->
-
-
                         </tr>
                  <%   } %>
 

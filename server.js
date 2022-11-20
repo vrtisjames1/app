@@ -3,13 +3,24 @@
 // =======================================
 const express = require('express');
 const mongoose = require('mongoose');
+
+// added by me
+const exphbs = require('express-handlebars');
+const nodemailer = require('nodemailer');
+// end of added
+
 const app = express();
 let PORT = 3000;
 if(process.env.PORT){
 	PORT = process.env.PORT
-}
+};
 
-const bodyParser = require('body-parser')
+const bodyParser = require('body-parser');
+//body parser middleware
+app.use(bodyParser.urlencoded({ extended: false}));
+app.use(bodyParser.json());
+// end of body parser
+
 const methodOverride = require('method-override');
 
 app.use(express.urlencoded({extended: true}));

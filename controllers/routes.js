@@ -2,6 +2,11 @@ const express = require("express");
 const router = express.Router();
 const mongoose = require('mongoose');
 const { db } = require("../models/app.js");
+// added by me
+const bodyParser = require('body-parser')
+const exphbs = require('express-handlebars')
+const nodemailer = require('nodemailer')
+// end of added
 
 // =======================================
 //              MODELS and SEED Const
@@ -10,6 +15,7 @@ const profile = require('../models/app.js');
 
 const { indexOf } = require("../models/seed.js");
 const profileSeed = require('../models/seed.js');
+const { match } = require("minimatch");
 
 
 // =======================================
@@ -99,6 +105,9 @@ router.get(`/santa`, (req, res)=> {
 // =======================================
 //              RESULTS
 // =======================================
+
+let matchArray = [];
+
 router.get(`/results`, (req, res)=> {
   profile.find({}, (error, profileList)=> {
 
@@ -155,7 +164,6 @@ quit = 0;
     }
   } 
 
-  
 partners();
 
 let results = null;
@@ -164,7 +172,7 @@ if ((matchArray[profileList.length - 1] == array[profileList.length - 1].name) |
 {
   results = "Draw Again";
 } else {
-  results = "Congrats the name has been decided"
+  results = 'Congrats the name has been decided. Click "NEXT" to email results'
 }
 
 res.locals.results = results;
@@ -198,6 +206,20 @@ router.put('/:id', (req, res)=>{
   req.body.wishList = req.body.wishList.split(",")
   profile.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedModel)=>{
       res.redirect(`/`);
+  });
+});
+
+// =======================================
+//              EMAIL
+// =======================================
+router.get(`/email`, (req, res)=> {
+  profile.find({}, (error, profileList)=> {
+
+      if (error) console.log('error')
+    res.render(`email.ejs`, 
+    {
+      profileIndex: profileList
+    });
   });
 });
 
