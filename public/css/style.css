@@ -53,9 +53,6 @@ ul {
     flex-direction: row;
   }
 
-  .edit {
-    margin-left: 8em;
-  }
 
   @media only screen and (max-width: 550px) {
     #indexContainer{
@@ -120,5 +117,12 @@ ul {
 #closeBtn {
   margin-top: 3em;
   text-align: right;
+}
+
+/* edit profile */
+#submitDelete {
+  display: flex;
+  justify-content: space-between;
+  margin: 1em;
 }
 

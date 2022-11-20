@@ -30,6 +30,8 @@
             </div>
         <div class="container-fluid">
             <h1>Edit <%=profileIndex.name%>'s Profile</h1>
+
+
             
             <form class = "edit-form-container" action="/<%=profileIndex._id%>?_method=PUT" method="POST">
                     <div class="input-group mb-3">
@@ -78,9 +80,18 @@
                          <input  class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" type="text" name="email" placeholder="email address" value="<%=profileIndex.email%>"/><br/>
                 </div>
                 
-                <input class="btn btn-primary" id="submit" type="submit" value="SUBMIT"/>
-                </form>
-
+                <div id="submitDelete">
+                    <div id="submit">
+                        <input class="btn btn-primary" id="submit" type="submit" value="SUBMIT"/>
+                    </div>
+                        
+                     <div id="deleteProfile">
+                        <form action="/<%=profileIndex.id; %>?_method=DELETE" method="POST">
+                            <input type="submit" value="DELETE PROFILE" class="btn btn-danger btn-sm delete"/>
+                        </form>
+                     </div>
+                </div>
+            </form>
         </div>
 
     </div>
