@@ -225,6 +225,7 @@ partners();
 
 let results = null;
 
+
 if ((matchArray[profileList.length - 1] == array[profileList.length - 1].name) || (matchArray[profileList.length - 1] == array[profileList.length - 1].spouse))
 {
   results = "Draw Again";

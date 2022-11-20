@@ -13,6 +13,11 @@
         
         <!-- CSS -->
         <link rel="stylesheet" href="./css/email.css">
+
+                  <!-- JQUERY -->
+                  <script
+                  src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+                  <script src="./edit.js"></script>
          
     </head>
     <body id="indexContainer">
@@ -25,28 +30,35 @@
 
                   <div class="contact">
                     <h3>Email Results</h3>
-                    
+                    <%let number = null%>
+
                     <form method="POST" action="/send">
                       <p>
-                        <label>Name</label>
-                        <input list="names" type="text" name="name" autocomplete="off" placeholder="profile name">
-                        <datalist id="names" style="background-color:DodgerBlue">
-                          <% for (let i = 0; i < profileIndex.length; i++) { %>
+                        <div class="input-group mb-3">
+                          <div class="input-group-prepend">
+                            <label class="input-group-text" for="inputGroupSelect01">Names</label>
+                          </div>
+                          <select class="custom-select" id="inputGroupSelect01 nameInput" name="name">
+                            <option >Choose...</option>
+                            <% for (let i = 0; i < profileIndex.length; i++) { %>
                               <option ><%=profileIndex[i].name%></option>
-                             
-                          <% } %>                 
-                        </datalist>
+                          <% } %>
+                          </select>
+                        </div>
                       </p>
+
                       <p>
-                        <label>Email Address</label>
-                        <input list="email" type="email" name="email" autocomplete="off" placeholder="profile email address">
-                        <datalist id="email" style="background-color:DodgerBlue">
-                          <% for (let i = 0; i < profileIndex.length; i++) { %>
+                        <div class="input-group mb-3">
+                          <div class="input-group-prepend">
+                            <label class="input-group-text" for="inputGroupSelect01">Email</label>
+                          </div>
+                          <select class="custom-select" id="inputGroupSelect01 emailInput" name="email">
+                            <option >Choose...</option>
+                            <% for (let i = 0; i < profileIndex.length; i++) { %>
                               <option ><%=profileIndex[i].email%></option>
-                             
-                          <% } %>                 
-                        </datalist>
-                        
+                          <% } %>
+                          </select>
+                        </div>
                       </p>
 
                       <p class="full">
@@ -56,7 +68,6 @@
                   </div>
                 </div>
               </div>
-
 
     </body>
     </html>
