@@ -9,7 +9,7 @@ const profileSchema = new Schema({
     wishList: [{type: String}],
     funFact: {type: String},
     favSong: {type: String},
-    email: String,
+    email: {type: String, unique: true},
     });
 
     const profile = mongoose.model('Profile', profileSchema);
