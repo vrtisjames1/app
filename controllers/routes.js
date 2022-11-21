@@ -41,13 +41,16 @@ let array = [];
 // =======================================
 //              EMAIL
 // =======================================
+let messageboard = null;
 router.get(`/email`, (req, res)=> {
   profile.find({}, (error, profileList)=> {
     console.log(array)
-      if (error) console.log('error')
+      if (error){ console.log('error')};
+  res.locals.messageboard = messageboard;
     res.render(`email.ejs`, 
     {
-      profileIndex: profileList
+      profileIndex: profileList,
+      message: messageboard,
     });
   });
 });
@@ -58,7 +61,7 @@ router.post('/send', (req, res)=>{
     service: 'gmail',
     auth: {
       user: 'secretsantaclause1235@gmail.com',
-      pass: 'ymbu doyk mkyr refg' // naturally, replace both with your real credentials or an application-specific password
+      pass: 'mqze dgsk qwvh vprq' // naturally, replace both with your real credentials or an application-specific password
     }
   });
  array;
@@ -74,13 +77,15 @@ router.post('/send', (req, res)=>{
   }
  }
 
-  
   transporter.sendMail(mailOptions, function(error, info){
     if (error) {
     console.log(error);
+    messageboard = `Error! Message was not sent to ${req.body.email}`
     } else {
       console.log('Email sent: ' + info.response);
+      messageboard = `Success! Message was sent to ${req.body.email}`
     }
+    
     res.redirect(`/email`);
 });
 });
@@ -172,6 +177,7 @@ router.get(`/results`, (req, res)=> {
 let matchArray = null;
 let nameArray = null;
 let quit = null;
+messageboard = null;
 
 array = [] 
 for (let i = 0; i < profileList.length; i++) { 
@@ -179,7 +185,7 @@ array.push({name: profileList[i].name.split(" ").join("").toLowerCase(),spouse: 
   }
 
   res.locals.array = array;
-  console.log(array)
+  // console.log(array)
 
 const start = () =>{
   nameArray = []
@@ -216,7 +222,7 @@ quit = 0;
       }
       }
       array[i].partner = matchArray[i]
-      console.log(array)
+      // console.log(array)
       nameArray.splice(nameArray.indexOf((matchArray[i])), 1)
     }
   } 
@@ -272,13 +278,13 @@ router.put('/:id', (req, res)=>{
 // =======================================
 router.get('/:id', (req, res)=>{
   profile.findById(req.params.id, (err, foundProfile)=>{ 
-    res.render(
-    'show.ejs',
-    {
-      profileIndex: foundProfile
-    }
-  );
-});
+      res.render(
+      'show.ejs',
+      {
+        profileIndex: foundProfile
+      }
+    );
+  });
 });
 
 module.exports = router;

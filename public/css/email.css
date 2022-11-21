@@ -3,7 +3,7 @@
 }
 
 html, body{
-  background-color: #F08080;
+  background-color: #DA2C43;
   color:#485e74;
   line-height:1.6;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -15,6 +15,10 @@ html, body{
   margin-left:auto;
   margin-right:auto;
   padding:1em;
+}
+
+.btn {
+  border: 2px solid black;
 }
 
 ul{

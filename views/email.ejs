@@ -30,13 +30,14 @@
 
                   <div class="contact">
                     <h3>Email Results</h3>
+                    <h4><%=message%></h4>
                     <%let number = null%>
 
                     <form method="POST" action="/send">
                       <p>
                         <div class="input-group mb-3">
                           <div class="input-group-prepend">
-                            <label class="input-group-text" for="inputGroupSelect01">Names</label>
+                            <label class="input-group-text" for="inputGroupSelect01">Name</label>
                           </div>
                           <select class="custom-select" id="inputGroupSelect01 nameInput" name="name">
                             <option >Choose...</option>
