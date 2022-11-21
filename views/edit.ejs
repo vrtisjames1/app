@@ -80,28 +80,20 @@
                          <input  class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" type="text" name="email" placeholder="email address" value="<%=profileIndex.email%>"/><br/>
                 </div>
                 
-                <div id="submitDelete">
-
-
-                        
-                     
-                        
-                        <!-- old delete information -->
-
-                     
+                <!-- Submit button -->
+                <div id="submit">
+                        <input class="btn btn-primary" id="submit" type="submit" value="SUBMIT"/>
                 </div>
             </form>
 
-            <div id="submitDelete">
-                <div id="submit">
-                    <input class="btn btn-primary" id="submit" type="submit" value="SUBMIT"/>
-                </div>
-                <div id="deleteProfile">
+
+            <!-- delete button -->
+            <div id="delete">
                 <form action="/<%=profileIndex.id%>?_method=DELETE" method="POST">
-                    <input type="submit" value="DELETE" class="btn btn-danger btn-sm"/>
+                    <input type="submit" value="DELETE PROFILE" class="btn btn-danger btn-sm"/>
                 </form>
-                </div>
             </div>
+    
  
         </div>
 

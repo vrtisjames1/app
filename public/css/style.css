@@ -144,9 +144,9 @@ ul {
 }
 
 /* edit profile */
-#submitDelete {
+#delete {
   display: flex;
-  justify-content: space-between;
+  flex-direction: row-reverse;
   margin: 1em 1em 2em 1em;
 }
 
