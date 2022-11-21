@@ -12,7 +12,6 @@ const nodemailer = require('nodemailer')
 //              MODELS and SEED Const
 // =======================================
 const profile = require('../models/app.js');
-
 const { indexOf } = require("../models/seed.js");
 const profileSeed = require('../models/seed.js');
 const { match } = require("minimatch");
@@ -56,7 +55,9 @@ router.get(`/email`, (req, res)=> {
 });
 
 router.post('/send', (req, res)=>{
-  ////////////
+// =======================================
+// node mailer code
+// =======================================
   const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
@@ -85,7 +86,12 @@ router.post('/send', (req, res)=>{
       console.log('Email sent: ' + info.response);
       messageboard = `Success! Message was sent to ${req.body.email}`
     }
-    
+// =======================================
+// end of node mailer code
+// =======================================
+// =======================================
+// redirect to send message
+// =======================================
     res.redirect(`/email`);
 });
 });
@@ -171,8 +177,9 @@ router.get(`/santa`, (req, res)=> {
 router.get(`/results`, (req, res)=> {
   profile.find({}, (error, profileList)=> {
 
-//////////
-////array of names
+// =======================================
+// secret santa code
+// =======================================
 
 let matchArray = null;
 let nameArray = null;
@@ -229,6 +236,12 @@ quit = 0;
 
 partners();
 
+// =======================================
+// end of secret santa code
+// =======================================
+// =======================================
+// posting results message
+// =======================================
 let results = null;
 
 
@@ -240,9 +253,13 @@ if ((matchArray[profileList.length - 1] == array[profileList.length - 1].name) |
 }
 
 res.locals.results = results;
+// =======================================
+// posting message
+// =======================================
 
- ///////////////
- //////render
+ // =======================================
+// render page
+// =======================================
     res.render(`results.ejs`, 
     {
       profileIndex: profileList,

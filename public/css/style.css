@@ -33,6 +33,13 @@ img {
   border: 1px solid black;
   padding: 5px;
 }
+#buttonDiv{
+  display: flex;
+  flex-direction: row;
+}
+#new, #secretsanta {
+  margin: 1em;
+}
 /* end of index */
 
 /* Show page */
