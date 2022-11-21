@@ -53,5 +53,23 @@ module.exports = [
         favSong: `White Christmas`,
         email: `vrtis@hotmail.com`
     },
+    {
+        name: `April`,
+        spouse: `Brian`,
+        image: `https://i.imgur.com/dO6kclw.jpg`,
+        wishList: [`Surprise me! Or a meundies gift card so I can buy a onsie when they are on clearance!`],
+        funFact: `I already set up a Secret Santa system and it only took me 3 minutes.`,
+        favSong: `Little Drummer Boy/Peace in Earth`,
+        email: `aprvrtis@gmail.com`
+    },
+    {
+        name: `Brian`,
+        spouse: `April`,
+        image: `https://i.imgur.com/vbqN1P6.jpg`,
+        wishList: [`I like a good pair of socks and matching father/daughter stuff`],
+        funFact: `If one person smells like dog poop, we all smell like dog poop`,
+        favSong: `Christmas Island - Jimmy Buffet`,
+        email: `brian.curran90@gmail.com`
+    },
     
 ]

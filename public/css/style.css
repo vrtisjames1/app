@@ -1,5 +1,7 @@
 html, body {
- background-color: #F08080;
+ background-color: #C60C30;
+ font-family: 'Overpass', sans-serif;
+
 }
 
 img {
@@ -11,16 +13,27 @@ img {
     margin: 1em 3em 2em 3em;
 }
 
+/* index css */
 #box{
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #ACE1AF;
+    background-color: #8FBC8B;
     border-radius: 10px;
     border: 1px solid black;
     padding: 5px;
 }
 
+#profile-image-box{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #D8BFD8;
+  border-radius: 10px;
+  border: 1px solid black;
+  padding: 5px;
+}
+/* end of index */
 
 /* Show page */
 .rightContainer {
@@ -51,6 +64,10 @@ ul {
   #btnDiv{
     display: flex;
     flex-direction: row;
+  }
+
+  .btn {
+    border: 2px solid black;
   }
 
 
