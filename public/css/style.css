@@ -24,6 +24,15 @@ img {
     padding: 5px;
 }
 
+#mainHeader{
+  display: flex;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 1px solid black;
+  padding-top: 1em;
+  border-radius: 10px;
+}
+
 #profile-image-box{
   display: flex;
   flex-direction: column;
