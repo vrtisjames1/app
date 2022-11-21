@@ -286,6 +286,8 @@ res.locals.results = results;
 // =======================================
 // =======================================
 router.get('/:id/edit', (req, res)=>{
+
+
   profile.findById(req.params.id, (err, foundProfile)=>{ 
       res.render(
       'edit.ejs',
@@ -297,6 +299,12 @@ router.get('/:id/edit', (req, res)=>{
 });
 
 router.put('/:id', (req, res)=>{  
+  if(req.body.spouse == "" ){
+    req.body.spouse = "none";
+      }
+  if(req.body.image == "" ){
+    req.body.image = "https://i.imgur.com/tdi3NGa.png";
+      }
   req.body.wishList = req.body.wishList.split(",")
   profile.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedModel)=>{
       res.redirect(`/`);
