@@ -49,9 +49,11 @@
                                 <ul>
                                     <%  for (let j = 0; j < profileIndex?.wishList.length; j++){ %>
                                         <% if (/.com/.test(profileIndex?.wishList[j]) == true) {%>
-                                            <a href="<%=profileIndex?.wishList[j]%>" target="_blank">
-                                                GIFT LINK
-                                            </a>
+                                            <li>
+                                                <a href="<%=profileIndex?.wishList[j]%>" target="_blank">
+                                                    GIFT LINK
+                                                </a>
+                                            </li>
                                         <% } else {%>
                                         <li id="show">
                                         <%=profileIndex?.wishList[j];%>
