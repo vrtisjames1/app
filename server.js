@@ -3,6 +3,7 @@
 // =======================================
 const express = require('express');
 const mongoose = require('mongoose');
+const methodOverride = require('method-override');
 
 // added by me
 const exphbs = require('express-handlebars');
@@ -21,11 +22,10 @@ app.use(bodyParser.urlencoded({ extended: false}));
 app.use(bodyParser.json());
 // end of body parser
 
-const methodOverride = require('method-override');
-
 app.use(express.urlencoded({extended: true}));
 app.use(express.static('public'))
 app.use(methodOverride('_method'));
+
 
 // =======================================
 // Must remain on bottom

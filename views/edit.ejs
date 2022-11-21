@@ -22,8 +22,8 @@
 
     </head>
     <body id="indexContainer" >
+ 
     <div class=".container-fluid">
-    <!-- model text box -->
  
         <div class="back-button-divider">
             <a href="/"><button class="btn btn-secondary back-button" >BACK</button></a>
@@ -81,18 +81,30 @@
                 </div>
                 
                 <div id="submitDelete">
-                    <div id="submit">
-                        <input class="btn btn-primary" id="submit" type="submit" value="SUBMIT"/>
-                    </div>
+
+
                         
-                     <div id="deleteProfile">
-                        <form action="/<%=profileIndex.id; %>?_method=DELETE" method="POST">
-                            <input type="submit" value="DELETE PROFILE" class="btn btn-danger btn-sm delete"/>
-                        </form>
-                     </div>
+                     
+                        
+                        <!-- old delete information -->
+
+                     
                 </div>
             </form>
+
+            <div id="submitDelete">
+                <div id="submit">
+                    <input class="btn btn-primary" id="submit" type="submit" value="SUBMIT"/>
+                </div>
+                <div id="deleteProfile">
+                <form action="/<%=profileIndex.id%>?_method=DELETE" method="POST">
+                    <input type="submit" value="DELETE" class="btn btn-danger btn-sm"/>
+                </form>
+                </div>
+            </div>
+ 
         </div>
+
 
     </div>
     </body>
