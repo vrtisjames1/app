@@ -106,7 +106,15 @@ router.post('/send', (req, res)=>{
 router.get(`/new`, (req, res)=> {
   profile.find({}, (error, profileList)=> {
 
-      if (error) console.log('error')
+    // let nameMessage = null;
+    // const $nameInput = document.getElementById("nameInput").value;
+    // for (let i =0; i <profileList.length; i++){
+    //   if(profileList[i].name == $nameInput){
+    //     nameMessage = `asdasdad`
+    //   }
+    // }
+
+    // res.locals.nameMessage = nameMessage
     res.render(`new.ejs`, 
     {
       profileIndex: profileList
@@ -116,17 +124,24 @@ router.get(`/new`, (req, res)=> {
 
 
 router.post('/', (req, res)=>{
+// =======================================
+// posting conditionals
+// =======================================
   req.body.wishList = req.body.wishList.split(",")
   if(req.body.spouse == "" ){
     req.body.spouse = "none";
       }
-      if(req.body.image == "" ){
-      req.body.image = "https://i.imgur.com/tdi3NGa.png";
+  if(req.body.image == "" ){
+    req.body.image = "https://i.imgur.com/tdi3NGa.png";
       }
-profile.create(req.body, ()=>{
+// =======================================
+// end of posting conditionals
+// =======================================
 
-  res.redirect("/");
-});
+    profile.create(req.body, ()=>{
+      res.redirect("/");
+    });
+
 });
 
 
@@ -209,7 +224,7 @@ quit = 0;
 
 ////////////////////
   for (let i = 0; i < profileList.length; i++) { 
-     while((matchArray[i] === array[i].name) || (matchArray[i] === array[i].spouse)){
+    while((matchArray[i] === array[i].name) || (matchArray[i] === array[i].spouse)){
       quit ++
       let num = null;
       
@@ -223,9 +238,9 @@ quit = 0;
         return;
       }
       }
-      array[i].partner = matchArray[i]
-      // console.log(array)
-      nameArray.splice(nameArray.indexOf((matchArray[i])), 1)
+        array[i].partner = matchArray[i]
+        console.log(array)
+        nameArray.splice(nameArray.indexOf((matchArray[i])), 1)
     }
   } 
 
@@ -239,8 +254,11 @@ partners();
 // =======================================
 let results = null;
 
+
+
 if ((matchArray[profileList.length - 1] == array[profileList.length - 1].name) || (matchArray[profileList.length - 1] == array[profileList.length - 1].spouse))
 {
+  partners();
   results = "Draw Again";
 } else {
   results = 'Congrats the name has been decided. Click "NEXT" to email results'
