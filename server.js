@@ -4,11 +4,9 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const methodOverride = require('method-override');
-
-// added by me
 const exphbs = require('express-handlebars');
 const nodemailer = require('nodemailer');
-// end of added
+const bodyParser = require('body-parser');
 
 const app = express();
 let PORT = 3000;
@@ -16,16 +14,15 @@ if(process.env.PORT){
 	PORT = process.env.PORT
 };
 
-const bodyParser = require('body-parser');
-//body parser middleware
+// =======================================
+//              Middleware
+// =======================================
 app.use(bodyParser.urlencoded({ extended: false}));
 app.use(bodyParser.json());
 // end of body parser
-
 app.use(express.urlencoded({extended: true}));
 app.use(express.static('public'))
 app.use(methodOverride('_method'));
-
 
 // =======================================
 // Must remain on bottom
