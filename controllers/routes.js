@@ -106,22 +106,23 @@ router.post('/send', (req, res)=>{
 router.get(`/new`, (req, res)=> {
   profile.find({}, (error, profileList)=> {
 
-    // let nameMessage = null;
-    // const $nameInput = document.getElementById("nameInput").value;
-    // for (let i =0; i <profileList.length; i++){
-    //   if(profileList[i].name == $nameInput){
-    //     nameMessage = `asdasdad`
-    //   }
-    // }
-
-    // res.locals.nameMessage = nameMessage
+// =======================================
+// res.locals error message
+// =======================================
+    res.locals.errmsg = errmsg
+// =======================================
     res.render(`new.ejs`, 
     {
-      profileIndex: profileList
+      profileIndex: profileList,
+      errormessage: errmsg
     });
   });
 });
-
+// =======================================
+// error message variable
+// =======================================
+let errmsg = ``;
+// =======================================
 
 router.post('/', (req, res)=>{
 // =======================================
@@ -139,10 +140,19 @@ router.post('/', (req, res)=>{
 // =======================================
 
     profile.create(req.body, (error)=>{
-      if (error) {
-        res.redirect(`/new`);
+      if(error){
+        if (error.keyPattern.name == 1) {
+          console.log(error);
+          errmsg = `Duplicate or missing name. Please choose a new name.`;
+          res.redirect("/new");
+        } else if (error.keyPattern.email == 1){
+          console.log(error);
+          errmsg = `Duplicate or missing email. Please input a new email.`;
+          res.redirect("/new");
+        }
       } else {
         res.redirect("/");
+        errmsg = ``;
       }
     });
 });
@@ -155,6 +165,13 @@ router.post('/', (req, res)=>{
 // =======================================
 router.get(`/`, (req, res)=> {
     profile.find({}, (error, profileList)=> {
+
+// =======================================
+// clear error message from new page
+// =======================================
+      errmsg = ``;
+// =======================================
+
         if (error) console.log('error')
       res.render(`index.ejs`, 
       {

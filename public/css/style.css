@@ -51,7 +51,10 @@ img {
 #new, #secretsanta {
   margin: 1em;
 }
-/* end of index */
+/* new page */
+#duplicate{
+  color: white;
+}
 
 /* Show page */
 .rightContainer {

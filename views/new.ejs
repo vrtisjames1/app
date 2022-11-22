@@ -29,7 +29,7 @@
 
             <!-- start of form -->
             <form class="new-person-container" action="/" method="POST">
-                <h5>Add your first name! If your name already exists in the system then create a new username. If your someones secret santa partner restriction then make sure they have your matching profile name.</h5>
+                <p>Add your first name! If your name already exists in the system then create a new username. If your someones secret santa partner restriction then make sure they have your matching profile name.</p>
                 
                 <div class="input-group mb-3">
                     <span class="input-group-text spantext" id="inputGroup-sizing-default">Name</span>
@@ -37,7 +37,7 @@
                 </div>
             <!-- Need to check if username already exists -->
 
-                    <h5>If you have a secret santa partner restriction, then type their name in the textbox below. If their profile already exists, then select it from the dropdown that populates in the textbox:</h5>
+                    <p>If you have a secret santa partner restriction, then type their name in the textbox below. If their profile already exists, then select it from the dropdown that populates in the textbox:</p>
                     <div class="input-group mb-3">
                         <span class="input-group-text spantext" id="inputGroup-sizing-default">Partner Restriction</span>
                         <input list="spouses" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" type="text"  name="spouse" placeholder="Secret Santa partner restriction" autocomplete="off"/><br/>
@@ -80,7 +80,7 @@
  
             <input class="btn btn-primary add-movie-button" id="submit" type="submit" value="ADD PERSON"/>
             </form>
-
+                <h4 id="duplicate"><%=errormessage%></h4>
 
         </div>
     </div>
