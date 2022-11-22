@@ -23,23 +23,30 @@
          
     </head>
     <body id="indexContainer">
-        <a href="/"><button class="btn btn-secondary back-button" >BACK</button></a>
+        <a href="/"><button class="btn btn-secondary back-button" >HOME</button></a>
         <a href="/results"><button class="btn btn-warning back-button" id="drawbtn">DRAW NAMES</button></a>
 
 
             <div id ="ho">
-                <h2>Ho! Ho! Ho! You are about to select partners for this totally rad "Secret Santa" website. Select the button below to have your partners drawn at random. </h2>
+                <div id="ho-text">
+                    <p>Ho! Ho! Ho! You are about to select partners for this totally rad "Secret Santa" website.  Before we start, please confirm the names of everyone who is playing and their partner restrictions. If there is an error, select <b>"HOME"</b> and edit the persons profile.<b>Once complete, click "DRAW NAMES"!</b></p>
+                    <div id="tally-names">
+                        <h5><u>Secret Santa List</u></h5>
+                    
+                    <% for (let i = 0; i < profileIndex.length; i++){ %>
+                        <p class="tally-names-para"><b><%=profileIndex[i].name%></b>
+                            Partner Restriction: <i><%=profileIndex[i].spouse%></i></p>
+                    <% } %>
+                    
+
+                        
+                    </div>
+                </div>
+
+                
             </div>
 
-            <!-- <div id ="reset">
-                <h2>You have already selected secret santa names. To reset select the reset button below. </h2>
-            </div> -->
-
-            
-
-            <!-- <a href="#"><button class="btn btn-danger back-button" id="resetbtn">Reset</button></a> -->
-            
-            <!-- cange btn -->
+ 
 
 
     </body>

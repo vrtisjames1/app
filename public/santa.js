@@ -1,18 +1,14 @@
 $(()=>{
-    // $('#reset').hide()
-    // $('#resetbtn').hide()
 
-    // const $reset = () => {
-    // $('#reset').hide()
-    // $('#resetbtn').hide()
-    // }
+    //  // functions to hide buttons when draw again is required
+    const $message = $('#message').text()
 
-    // const $draw = () => {
-    // $('#reset').show()
-    // $('#resetbtn').show()
-    // }
-
-    // $('#reset').on('click', $reset);
-    // $('#drawbtn').on('click', $draw);
+    if(/Draw Again/i.test($message) == true){
+        $(`.next`).hide();
+    } else {
+      $(`.draw-again`).hide();
+    }
+    console.log($message)
 
 })
+

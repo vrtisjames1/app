@@ -138,10 +138,13 @@ router.post('/', (req, res)=>{
 // end of posting conditionals
 // =======================================
 
-    profile.create(req.body, ()=>{
-      res.redirect("/");
+    profile.create(req.body, (error)=>{
+      if (error) {
+        res.redirect(`/new`);
+      } else {
+        res.redirect("/");
+      }
     });
-
 });
 
 
@@ -259,7 +262,8 @@ let results = null;
 if ((matchArray[profileList.length - 1] == array[profileList.length - 1].name) || (matchArray[profileList.length - 1] == array[profileList.length - 1].spouse))
 {
   partners();
-  results = "Draw Again";
+  results = `Click "Draw Again"
+(The system isn't perfect and needs you to reshuffel the results)`;
 } else {
   results = 'Congrats the name has been decided. Click "NEXT" to email results'
 }

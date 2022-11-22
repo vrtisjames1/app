@@ -99,14 +99,42 @@ ul {
   }
   }
 
+/* Santa Page */
   #ho, #reset{
     border: 1px solid black;
     padding: 1em;
-    background-color: rgba(255, 255, 255, 0.7);
-    margin: 1em;
+    background-image: url("../images/garland.png");
+    max-height: auto; 
+    max-width: auto;
+    min-height: 50vh;
+    background-size: contain;
+    background-color: rgba(255, 255, 255, 0.8);
+    margin: 0.3em;
   }
 
+  #ho-text{
+    border: 1px solid black;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    white-space: pre-wrap;
+    min-height: 50vh;
+  }
 
+  #tally-names{
+    display: flex;
+    margin-top: 0;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .tally-names-para{
+    padding: none;
+    position: relative;
+    white-space: pre-line;
+  }
 
 /* edit profile */
 #delete {

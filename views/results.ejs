@@ -21,15 +21,18 @@
          
     </head>
     <body id="indexContainer">
-        <a href="/"><button class="btn btn-secondary back-button" >BACK</button></a>
-        <input class="btn btn-warning back-button" type="button" value = "DRAW AGAIN" onclick="history.go(0)" />
-        <a href="/email"><button class="btn btn-primary back-button" >NEXT</button></a>
+        <a href="/"><button class="btn btn-secondary back-button" >HOME</button></a>
+        <input class="btn btn-warning back-button draw-again" type="button" value = "DRAW AGAIN" onclick="history.go(0)" />
+        <a href="/email"><button class="btn btn-primary back-button next" >NEXT</button></a>
         <div class="container-fluid">
-            <h2 id ="ho"><%=myResults%></h2>
+            <div id="ho">
+                <div id="ho-text">
+                    <h2 id="message"><%=myResults%></h2>
+                </div>
+            </div>
 
-            <div class="container">
-
-              </div>
+            
+        </div>
 
 
     </body>
