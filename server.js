@@ -7,13 +7,17 @@ const methodOverride = require('method-override');
 const exphbs = require('express-handlebars');
 const nodemailer = require('nodemailer');
 const bodyParser = require('body-parser');
+const session = require('express-session');
+const dotenv = require('dotenv').config()
+
+
 
 const app = express();
 let PORT = 3000;
 if(process.env.PORT){
 	PORT = process.env.PORT
 };
-
+app.set('view engine', 'ejs');
 // =======================================
 //              Middleware
 // =======================================
@@ -23,12 +27,17 @@ app.use(bodyParser.json());
 app.use(express.urlencoded({extended: true}));
 app.use(express.static('public'))
 app.use(methodOverride('_method'));
-
-// =======================================
+app.use(session({secret:process.env.SESSION_SECRET, saveUninitialized:false, resave:false}));// =======================================
 // Must remain on bottom
 // =======================================
 const appRouter = require("./controllers/routes.js");
-app.use("/",appRouter);
+const appLogin = require("./controllers/login.js");
+app.use("/home",appRouter);
+app.use("/", appLogin);
+
+
+// login routes
+
 
 // mongoose.connection.dropDatabase();
 

@@ -47,6 +47,7 @@ img {
 #buttonDiv{
   display: flex;
   flex-direction: row;
+  justify-content: space-evenly;
 }
 #new, #secretsanta {
   margin: 1em;

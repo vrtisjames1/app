@@ -96,7 +96,7 @@ router.post('/send', (req, res)=>{
 // =======================================
 // redirect to send message
 // =======================================
-    res.redirect(`/email`);
+    res.redirect(`/home/email`);
 });
 });
 
@@ -140,6 +140,8 @@ router.post('/', (req, res)=>{
   if(req.body.image == "" ){
     req.body.image = "https://i.imgur.com/tdi3NGa.png";
       }
+
+  let username = req.body.name;
  
 // =======================================
 // end of posting conditionals
@@ -148,21 +150,17 @@ router.post('/', (req, res)=>{
     profile.create(req.body, (error)=>{
 
       if(error){
-        if (error.name == "TypeError"){
-          // console.log(error.name);
-          errmsg = `Missing required name or email.`;
-          res.redirect("/new");
-        } else if (error.keyPattern.name == 1) {
+        if (error.keyPattern.name == 1) {
           // console.log(error);
           errmsg = `Duplicate name. Please choose a new name.`;
-          res.redirect("/new");
+          res.redirect("/home/new");
         } else if (error.keyPattern.email == 1){
           // console.log(error);
           errmsg = `Duplicate email. Please input a new email.`;
-          res.redirect("/new");
+          res.redirect("/home/new");
         } 
       } else {
-        res.redirect("/");
+        res.redirect("/home");
         errmsg = ``;
       }
     });
@@ -339,7 +337,7 @@ router.put('/:id', (req, res)=>{
       }
   req.body.wishList = req.body.wishList.split(",")
   profile.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedModel)=>{
-      res.redirect(`/`);
+      res.redirect(`/home`);
   });
 });
 
@@ -350,7 +348,7 @@ router.put('/:id', (req, res)=>{
 // =======================================
 router.delete('/:id', (req, res)=>{
   profile.findByIdAndRemove(req.params.id, (err, data)=>{
-      res.redirect('/');
+      res.redirect('/home');
   });
 });
 

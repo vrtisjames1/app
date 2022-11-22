@@ -27,17 +27,23 @@
                 <!-- add new person -->
                 <div id="buttonDiv">
                     <div id="new">
-                        <a href="/new">
+                        <a href="/home/new">
                             <button class="btn btn-primary">Add Person</button>
                         </a>
                     </div>
     
                     <div id="secretsanta">
-                        <a href="/santa">
+                        <a href="/home/santa">
                             <button class="btn btn-primary">Play Secret Santa!</button>
                         </a>
                     </div>
+                    <div id="new">
+                        <a href="/">
+                            <button class="btn btn-primary">Logout</button>
+                        </a>
+                    </div>
                 </div>
+
 
 
 
@@ -59,7 +65,7 @@
 
                                 
                                     <div id="profile-image-box">
-                                        <a href="/<%=profileIndex[i].id; %>">
+                                        <a href="/home/<%=profileIndex[i].id; %>">
                                             <button class="btn btn-primary">Profile: <%=profileIndex[i].name%></button>
                                         </a>
                                         <img class="showImg" src=<%=profileIndex[i].image%>>
@@ -67,7 +73,7 @@
                                         <p><b>My Fun Fact:</b> "<%=profileIndex[i].funFact%>"</p>
                                         
                                         <div id="btnDiv">
-                                            <a class="btn btn-warning btn-sm edit" href="/<%=profileIndex[i].id; %>/edit">EDIT</a>
+                                            <a class="btn btn-warning btn-sm edit" href="/home/<%=profileIndex[i].id; %>/edit">EDIT</a>
                                         </div>
 
                                 </div>

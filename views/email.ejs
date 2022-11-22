@@ -12,16 +12,16 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
         
         <!-- CSS -->
-        <link rel="stylesheet" href="./css/email.css">
+        <link rel="stylesheet" href="/css/email.css">
 
                   <!-- JQUERY -->
                   <script
                   src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-                  <script src="./edit.js"></script>
+                  <script src="/edit.js"></script>
          
     </head>
     <body id="indexContainer">
-        <a href="/"><button class="btn btn-secondary back-button" >HOME</button></a>
+        <a href="/home"><button class="btn btn-secondary back-button" >HOME</button></a>
 
 
             <div class="container">
@@ -33,7 +33,7 @@
                     <h4><%=message%></h4>
                     <%let number = null%>
 
-                    <form method="POST" action="/send">
+                    <form method="POST" action="/home/send">
                       <p>
                         <div class="input-group mb-3">
                           <div class="input-group-prepend">
