@@ -3,7 +3,7 @@ const Schema = mongoose.Schema; // create a shorthand for the mongoose Schema co
 
 
 const profileSchema = new Schema({
-    name: {type: String, unique: true , required: true},
+    name: {type: String, unique: true, required: true},
     spouse: {type: String},
     image: String,
     wishList: [{type: String}],

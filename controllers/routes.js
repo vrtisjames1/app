@@ -14,10 +14,12 @@ const nodemailer = require('nodemailer')
 const profile = require('../models/app.js');
 const { indexOf } = require("../models/seed.js");
 const profileSeed = require('../models/seed.js');
-const { match } = require("minimatch");
-const { append } = require("vary");
+// const { match } = require("minimatch");
+// const { append } = require("vary");
 
-// ARRAY FOR GENERATING SECRET SANTA PARTNERS
+// =======================================
+// Arrays for generating secret santa partners
+// =======================================
 let matchArray = [];
 let array = [];
 // =======================================
@@ -138,25 +140,27 @@ router.post('/', (req, res)=>{
   if(req.body.image == "" ){
     req.body.image = "https://i.imgur.com/tdi3NGa.png";
       }
+ 
 // =======================================
 // end of posting conditionals
 // =======================================
 
     profile.create(req.body, (error)=>{
+
       if(error){
-        if (error.keyPattern.name == 1) {
-          console.log(error);
+        if (error.name == "TypeError"){
+          // console.log(error.name);
+          errmsg = `Missing required name or email.`;
+          res.redirect("/new");
+        } else if (error.keyPattern.name == 1) {
+          // console.log(error);
           errmsg = `Duplicate name. Please choose a new name.`;
           res.redirect("/new");
         } else if (error.keyPattern.email == 1){
-          console.log(error);
+          // console.log(error);
           errmsg = `Duplicate email. Please input a new email.`;
           res.redirect("/new");
-        } else if (error == `TypeError`){
-          console.log(error);
-          errmsg = `Missing required name or email.`;
-          res.redirect("/new");
-        }
+        } 
       } else {
         res.redirect("/");
         errmsg = ``;
