@@ -135,6 +135,9 @@ router.post('/', (req, res)=>{
   if(req.body.image == "" ){
     req.body.image = "https://i.imgur.com/tdi3NGa.png";
       }
+  if(req.body.image == "" ){
+    req.body.image = "https://i.imgur.com/tdi3NGa.png";
+      }
 // =======================================
 // end of posting conditionals
 // =======================================
@@ -143,11 +146,15 @@ router.post('/', (req, res)=>{
       if(error){
         if (error.keyPattern.name == 1) {
           console.log(error);
-          errmsg = `Duplicate or missing name. Please choose a new name.`;
+          errmsg = `Duplicate name. Please choose a new name.`;
           res.redirect("/new");
         } else if (error.keyPattern.email == 1){
           console.log(error);
-          errmsg = `Duplicate or missing email. Please input a new email.`;
+          errmsg = `Duplicate email. Please input a new email.`;
+          res.redirect("/new");
+        } else if (error == `TypeError`){
+          console.log(error);
+          errmsg = `Missing required name or email.`;
           res.redirect("/new");
         }
       } else {
@@ -218,7 +225,7 @@ messageboard = null;
 
 array = [] 
 for (let i = 0; i < profileList.length; i++) { 
-array.push({name: profileList[i].name.split(" ").join("").toLowerCase(),spouse: profileList[i].spouse.split(" ").join("").toLowerCase() ,email: profileList[i].email.split(" ").join(""), partner: null})
+array.push({name: profileList[i].name.split(" ").join(""),spouse: profileList[i].spouse.split(" ").join("") ,email: profileList[i].email.split(" ").join(""), partner: null})
   }
 
   res.locals.array = array;
