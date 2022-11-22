@@ -3,7 +3,7 @@ module.exports = [
      name: `Jimmy`,
      spouse: `Emily`,
      image: `https://i.imgur.com/CGNU7Sn.jpeg`,
-     wishList: [`board game`,`camping stuff`,`hiking pants`],
+     wishList: [`https://www.amazon.com/Cnoc-Outdoors-Container-Thread-Orange/dp/B07QBQ894L/ref=asc_df_B07QBQ894L/?tag=hyprod-20&linkCode=df0&hvadid=344024264060&hvpos=&hvnetw=g&hvrand=4146271417716887094&hvpone=&hvptwo=&hvqmt=&hvdev=m&hvdvcmdl=&hvlocint=&hvlocphy=9001907&hvtargid=pla-719299045109&psc=1&tag=&ref=&adgrpid=69358346815&hvpone=&hvptwo=&hvadid=344024264060&hvpos=&hvnetw=g&hvrand=4146271417716887094&hvqmt=&hvdev=m&hvdvcmdl=&hvlocint=&hvlocphy=9001907&hvtargid=pla-719299045109`,`Surprise Me`,`https://darntough.com/collections/men/products/mens-merino-wool-hiker-micro-crew-midweight-hiking-socks?variant=37874207686842`],
      funFact: `Dads favorite child`,
      favSong: `Santa Clause Is Coming To Town`,
      email: 'vrtisjames@gmail.com'
@@ -12,7 +12,7 @@ module.exports = [
         name: `Dad`,
         spouse: `Terri`,
         image: `https://i.imgur.com/vsevRIm.jpg`,
-        wishList: [`board game`,`camping stuff`,`hiking pants`],
+        wishList: [`Osprey Hydraulics Water Reservoir`,`Carhartt Men's Tall Size Force Tech Quarter-Zip Thermal Base Layer Long Sleeve Shirt large heavy weight`, `White Sox New Era Black Authentic Collection On Field Low Profile Game 59FIFTY Fitted Hat 7 5/8`],
         funFact: `Jimmy is my favorite child`,
         favSong: `Santa Clause Is Coming To Town`,
         email: `testa_emily@yahoo.com`
@@ -30,7 +30,7 @@ module.exports = [
         name: `Krystal`,
         spouse: `none`,
         image: `https://i.imgur.com/zV4FEWe.jpg`,
-        wishList: [`world peace`,`anything black`,`poop`],
+        wishList: [`https://www.amazon.com/hz/wishlist/ls/3JM62POT0JLHI?ref_=wl_share`],
         funFact: `Papa V's least favorite child`,
         favSong: `Paint it Black`,
         email: `loser@hotmail.com`
