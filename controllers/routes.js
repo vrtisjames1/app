@@ -58,6 +58,7 @@ router.get(`/email`, (req, res)=> {
   });
 });
 
+
 router.post('/send', (req, res)=>{
 // =======================================
 // node mailer code
