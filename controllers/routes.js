@@ -107,6 +107,12 @@ router.post('/send', (req, res)=>{
 // =======================================
 // =======================================
 router.get(`/new`, (req, res)=> {
+
+  let sesh = req.session;
+  if (!sesh.loggedIn){
+    res.redirect(`/`)
+  } else {
+
   profile.find({}, (error, profileList)=> {
 
 // =======================================
@@ -120,6 +126,7 @@ router.get(`/new`, (req, res)=> {
       errormessage: errmsg
     });
   });
+}
 });
 // =======================================
 // error message variable
@@ -174,6 +181,17 @@ router.post('/', (req, res)=>{
 // =======================================
 // =======================================
 router.get(`/`, (req, res)=> {
+
+// =======================================
+// redirect to other page
+// =======================================
+let sesh = req.session;
+  if (!sesh.loggedIn){
+    res.redirect(`/`)
+  } else {
+
+  
+
     profile.find({}, (error, profileList)=> {
 
 // =======================================
@@ -188,6 +206,7 @@ router.get(`/`, (req, res)=> {
         profileIndex: profileList
       });
     });
+  }
   });
 
 
