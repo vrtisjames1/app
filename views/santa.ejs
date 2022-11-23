@@ -30,10 +30,23 @@
 
             <div id ="ho">
                 <div id="ho-text">
-                    <p>Ho! Ho! Ho! You are about to select partners for this totally rad "Secret Santa" website.  Before we start, please confirm the names of everyone who is playing and their partner restrictions. If there is an error, select <b>"HOME"</b> and edit the persons profile. <b>Once complete, click "DRAW NAMES"!</b></p>
+                    <p><b style="color:#FF0000">Ho! Ho! Ho! </b>You are about to select partners for this totally rad "Secret Santa" website.  Before we start, please confirm the names of everyone who is playing and their partner restrictions. If there is an error, select <b style="color:#787878">"HOME"</b> and edit the persons profile. Once complete, click <b style="color:#FFC000">"DRAW NAMES"!</b></p>
                     <div id="tally-names">
-                        <h5><u>Secret Santa List</u></h5>
-                    
+
+                    <!-- have users confirm if there may be a potential error with partners -->
+                    <% const nameArray = [] %>
+                    <% for (let i = 0; i < profileIndex.length; i++){ %>
+                        <% nameArray.push(profileIndex[i].name) %>
+                        <% } %>
+
+                        <% for (let i = 0; i < profileIndex.length; i++){ %>
+                       <% if(nameArray.includes(profileIndex[i].spouse) == false && profileIndex[i].spouse != 'none'){ %>
+                            <p style="color:#007FFF"><b>Double Check:</b> We have found that <b><%=nameArray[i]%></b> has indicated their partner restriction is <b><%=profileIndex[i].spouse%></b>, but there aren't any users with that name. Please double check both names for inconsistencies with spaces before/after their name, spelling errors, or capitolization.</p>
+                            <% } %>
+                        <% } %>
+
+                    <!-- generated list of secret santa names and partners -->
+                    <h5 style="color:#FF0000"><b><u>Secret Santa List</u></b></h5>
                     <% for (let i = 0; i < profileIndex.length; i++){ %>
                         <p class="tally-names-para"><b><%=profileIndex[i].name%></b>
                             Partner Restriction: <i><%=profileIndex[i].spouse%></i></p>

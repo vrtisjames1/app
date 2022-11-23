@@ -290,7 +290,7 @@ if ((matchArray[profileList.length - 1] == array[profileList.length - 1].name) |
 {
   partners();
   results = `Click "Draw Again"
-(The system isn't perfect and needs you to reshuffel the results)`;
+(The system isn't perfect and may need you to draw for names multiple times)`;
 } else {
   results = 'Congrats the name has been decided. Click "NEXT" to email results'
 }
