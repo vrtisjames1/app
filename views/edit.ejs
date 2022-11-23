@@ -31,6 +31,7 @@
             <h1>Edit <%=profileIndex.name%>'s Profile</h1>
 
             <form class = "edit-form-container" action="/home/<%=profileIndex._id%>?_method=PUT" method="POST">
+                    <b><p>*Required</p></b>
                     <div class="input-group mb-3">
                         <span class="input-group-text spantext" id="inputGroup-sizing-default">Name</span>
                         <input class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" type="text"  name="name" placeholder="Name" value="<%=profileIndex.name%>" /><br/>
@@ -71,7 +72,7 @@
                     <input  class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" type="text" name="favSong" placeholder="Favorite Christmas Song" value="<%=profileIndex.favSong%>"/><br/>
                 </div>
 
-                
+                <b><p>*Required</p></b>
                 <div class="input-group mb-3">
                     <span class="input-group-text spantext" id="inputGroup-sizing-default">Email</span>
                          <input  class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" type="text" name="email" placeholder="email address" value="<%=profileIndex.email%>"/><br/>
