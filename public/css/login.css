@@ -24,3 +24,9 @@ body{
     gap: 5px;
     box-shadow: 10px;
 }
+
+#form-login{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}

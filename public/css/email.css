@@ -2,28 +2,23 @@
   box-sizing: border-box;
 }
 
-html, body{
+body{
   background-color: #DA2C43;
   color:#485e74;
   line-height:1.6;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  padding:1em;
+  font-family: 'Overpass', sans-serif;
+  margin: 1em 0 0 0;
 }
 
-.container{
+/* .container{
   max-width:1170px;
   margin-left:auto;
   margin-right:auto;
   padding:1em;
-}
+} */
 
 .btn {
   border: 2px solid black;
-}
-
-ul{
-  list-style: none;
-  padding:0;
 }
 
 .brand{
@@ -40,11 +35,9 @@ ul{
 
 .wrapper > *{
   padding: 1em;
-}
+} 
 
-.company-info{
-  background:#c9e6ff;
-}
+
 
 .company-info h3, .company-info ul{
   text-align: center;
@@ -53,7 +46,7 @@ ul{
 
 .contact{
   background:#f9feff;
-}
+} 
 
 /* FORM STYLES */
 .contact form{
