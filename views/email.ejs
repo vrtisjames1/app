@@ -21,18 +21,18 @@
          
     </head>
     <body id="indexContainer">
-<div class="container-fluid">
+    <div class="container-fluid">
         <a href="/home"><button class="btn btn-secondary back-button" >HOME</button></a>
 
 
-            <div class="container">
+            
                 <h1 class="brand"><span>Secret Santa</span> Results</h1>
-                <div class="wrapper animated bounceInLeft">
+                <div class="wrapper">
 
                   <div class="contact">
                     <h3>Email Results</h3>
                     <h4><%=message%></h4>
-                    <%let number = null%>
+                    
 
                     <form method="POST" action="/home/send">
                       <p>
@@ -69,7 +69,7 @@
                     </form>
                   </div>
                 </div>
-              </div>
+              
     </div>
     </body>
     </html>

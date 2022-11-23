@@ -2,7 +2,6 @@ body{
     padding: 1em;
     background-image: url("../images/garland.png");
     max-height: auto; 
-    max-width: auto;
     min-height: 50vh;
     background-size: contain;
     background-color: rgba(218, 44, 67, 1);
@@ -10,6 +9,8 @@ body{
     display: flex;
     justify-content: center;
     max-width: 100%;
+    align-items: center;
+    height: 100vh;
 }
 
 .login-form{

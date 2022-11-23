@@ -7,15 +7,8 @@ body{
   color:#485e74;
   line-height:1.6;
   font-family: 'Overpass', sans-serif;
-  margin: 1em 0 0 0;
+  margin: 1em 3em 2em 3em;
 }
-
-/* .container{
-  max-width:1170px;
-  margin-left:auto;
-  margin-right:auto;
-  padding:1em;
-} */
 
 .btn {
   border: 2px solid black;
@@ -37,13 +30,6 @@ body{
   padding: 1em;
 } 
 
-
-
-.company-info h3, .company-info ul{
-  text-align: center;
-  margin:0 0 1rem 0;
-}
-
 .contact{
   background:#f9feff;
 } 
@@ -56,10 +42,6 @@ body{
 
 .contact form label{
   display:block;
-}
-
-.contact form p{
-  margin:0;
 }
 
 .contact form .full{
@@ -85,8 +67,14 @@ body{
   transition: background-color 2s ease-out;
 }
 
+
+#emailsubmit {
+  margin-top: 1em;
+}
+
 /* LARGE SCREENS */
 @media(min-width:700px){
+
   .wrapper{
     
     grid-template-columns: 1fr 2fr;
@@ -101,6 +89,8 @@ body{
   }
 }
 
-#emailsubmit {
-  margin-top: 1em;
-}
+  @media only screen and (max-width: 600px) {
+    body{
+      margin: 0.3em 0 0.5em 0;
+    }
+  }
