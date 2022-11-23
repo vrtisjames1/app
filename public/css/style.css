@@ -35,9 +35,16 @@ header{
 }
 
 @media only screen and (max-width: 600px) {
-  .btn-header{
-    font-size: 0.65em;
+
+  header{
+    justify-content: space-around;
   }
+  .btn-header{
+    text-align: center;
+    font-size: 1em;
+    padding: 5px 10px 10px 10px;
+  }
+
 
   #mainHeader{
     font-size: 0.5em;
