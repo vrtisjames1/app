@@ -30,11 +30,6 @@ let array = [];
 //   console.log(`added provided profiles data`)
 // })
 
-// onoff.create(buttonSeed, (err, data) => {
-//   if (err) console.log(err.message)
-//   console.log(`added provided button data`)
-// })
-
 
 // =======================================
 //              ROUTES
@@ -46,6 +41,15 @@ let array = [];
 // =======================================
 let messageboard = null;
 router.get(`/email`, (req, res)=> {
+
+// =======================================
+//              require sesh
+// =======================================
+  let sesh = req.session;
+  if (!sesh.loggedIn){
+    res.redirect(`/`)
+  } else {
+
   profile.find({}, (error, profileList)=> {
     console.log(array)
       if (error){ console.log('error')};
@@ -56,6 +60,7 @@ router.get(`/email`, (req, res)=> {
       message: messageboard,
     });
   });
+}
 });
 
 
