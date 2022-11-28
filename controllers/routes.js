@@ -83,7 +83,7 @@ router.post('/send', (req, res)=>{
       from: `secretsantaclause1235@gmail.com`,
       to: `${req.body.email}`,
       subject: `Secret Santa Results`,
-      text: `${array[i].name} you will be buying a gift for ${array[i].partner}`
+      text: `${array[i].name} you will be buying a gift for ${array[i].partner}. The secret santa spending limit is: ${req.body.amount}`
     };
   }
  }

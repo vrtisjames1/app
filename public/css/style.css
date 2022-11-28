@@ -265,4 +265,8 @@ flex-direction: column;
 .custom-select, .input-group-text{
   flex-grow: 0.5;
 }
+
+.form-control{
+  font-size: 0.8em;
+}
 }
