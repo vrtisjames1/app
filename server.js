@@ -31,8 +31,11 @@ app.use(session({secret:process.env.SESSION_SECRET, saveUninitialized:false, res
 // Must remain on bottom
 // =======================================
 const appRouter = require("./controllers/routes.js");
+const appPartners = require("./controllers/partners.js");
 const appLogin = require("./controllers/login.js");
+
 app.use("/home",appRouter);
+app.use("/partners",appPartners);
 app.use("/", appLogin);
 
 

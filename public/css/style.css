@@ -20,7 +20,7 @@ header{
   justify-content: space-evenly;
   background-color: #0076CE;
   margin-bottom: 1em;
-  border-bottom:1px solid black ;
+  border-bottom:1px solid white;
 }
 
 .btn-header{
@@ -30,12 +30,21 @@ header{
 }
 
 .home-new{
+  text-align: center;
   border-right: 1px solid white;
   padding-right: 20px;
+  flex-grow: 1;
 }
 
 .home-logout{
+  text-align: center;
   border-left: 1px solid white;
+  flex-grow: 1;
+}
+
+.home-santa{
+  text-align: center;
+  flex-grow: 1;
 }
 
 @media only screen and (max-width: 600px) {
@@ -167,7 +176,6 @@ ul {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    white-space: pre-wrap;
     min-height: 50vh;
   }
 
@@ -239,4 +247,22 @@ ul {
   justify-content: space-around;
   margin-top: 3em;
   text-align: right;
+}
+
+/* newsanta */
+#partnerSelect {
+display: flex;
+flex-direction: column;
+ width: 100%;
+ margin: 0;
+}
+
+
+@media only screen and (max-width: 610px) {
+.input-group, .input-group-text {
+  font-size: 0.8em;
+}
+.custom-select, .input-group-text{
+  flex-grow: 0.5;
+}
 }

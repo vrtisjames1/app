@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Home</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+
+        <!-- Bootstrap CSS only -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+        
+        <!-- CSS -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+        <link rel="stylesheet" href="/css/style.css">
+        
+         <!-- JQUERY -->
+         <script
+         src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+         <script src="../santa.js"></script>
+         
+    </head>
+    <body id="indexContainer">
+    <div class="container-fluid">
+        <a href="/home"><button class="btn btn-secondary back-button">HOME</button></a>
+        <a href="/home/results"><button class="btn btn-warning back-button" id="drawbtn">DRAW NAMES</button></a>
+
+
+            <div id ="ho">
+                <div id="ho-text">
+                    <p><b style="color:#FF0000">Ho! Ho! Ho! </b>You are about to select partners for this totally rad "Secret Santa" website.  Before we start, please confirm the names of everyone who is playing and select their partner restriction. If there is an error, select <b style="color:#787878">"HOME"</b> and edit the persons profile. Once complete, click <b style="color:#FFC000">"DRAW NAMES"!</b></p>
+ 
+                    <div id="partnerSelect">
+                        <% for (let i = 0; i < profileIndex.length; i++) { %>
+                            <form class = "edit-form-container" action="/partners/<%=profileIndex[i]._id%>?_method=PUT" method="POST">
+        
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                <label class="input-group-text" for="inputGroupSelect01"><b><%=profileIndex[i].name%></b>: Partner Restriction</label>
+                                </div>
+                                <select class="custom-select" id="inputGroupSelect01" name="spouse" onchange="this.form.submit()">
+                                <option ><%=profileIndex[i].spouse%></option>
+                                <% for (let i = 0; i < profileIndex.length; i++) { %>
+                                    <option ><%=profileIndex[i].name%></option>
+                                <% } %>
+                                <option >None</option>
+                                </select>
+                            </div>
+                            <!-- Submit button -->
+                                <div id="submit">
+                                    <noscript><input type="submit" value="Submit"/></noscript>
+                                </div>
+                            </form>
+                        <% } %>
+                        </div>
+                </div>
+            </div>
+    </div>
+    </body>
+    </html>

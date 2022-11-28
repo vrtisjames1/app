@@ -144,9 +144,7 @@ router.post('/', (req, res)=>{
 // posting conditionals
 // =======================================
   req.body.wishList = req.body.wishList.split(",")
-  if(req.body.spouse == "" ){
-    req.body.spouse = "none";
-      }
+    req.body.spouse = "None";
   if(req.body.image == "" ){
     req.body.image = "https://i.imgur.com/tdi3NGa.png";
       }
@@ -213,22 +211,6 @@ let sesh = req.session;
     });
   }
   });
-
-
-// =======================================
-// =======================================
-//              SANTA
-// =======================================
-// =======================================
-router.get(`/santa`, (req, res)=> {
-  profile.find({}, (error, profileList)=> {
-      if (error) console.log('error')
-    res.render(`santa.ejs`, 
-    {
-      profileIndex: profileList
-    });
-  });
-});
 
 // =======================================
 // =======================================
@@ -341,8 +323,6 @@ res.locals.results = results;
 // =======================================
 // =======================================
 router.get('/:id/edit', (req, res)=>{
-
-
   profile.findById(req.params.id, (err, foundProfile)=>{ 
       res.render(
       'edit.ejs',
@@ -362,9 +342,12 @@ router.put('/:id', (req, res)=>{
       }
   req.body.wishList = req.body.wishList.split(",")
   profile.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedModel)=>{
-      res.redirect(`/home`);
+      // res.redirect(`/home`);
   });
 });
+
+
+
 
 // =======================================
 // =======================================

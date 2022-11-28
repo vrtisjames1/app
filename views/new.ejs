@@ -37,19 +37,6 @@
                 </div>
             <!-- Need to check if username already exists -->
 
-                    <p>If you have a secret santa partner restriction, then type their name in the textbox below. If their profile already exists, then select it from the dropdown that populates in the textbox:</p>
-                    
-                    <div class="input-group mb-3">
-                        <span class="input-group-text spantext" id="inputGroup-sizing-default">Partner Restriction</span>
-                        <input list="spouses" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" type="text"  name="spouse" placeholder="Secret Santa partner restriction" autocomplete="off"/><br/>
-                        <datalist id="spouses" style="background-color:DodgerBlue">
-                            <% for (let i = 0; i < profileIndex.length; i++) { %>
-                                <option ><%=profileIndex[i].name%></option>
-                               
-                            <% } %>                 
-                          </datalist>
-                    </div>
-
 
                  <div class="input-group mb-3">
                     <span class="input-group-text spantext" id="inputGroup-sizing-default">Profile Image URL</span>
