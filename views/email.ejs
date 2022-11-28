@@ -38,19 +38,8 @@
                     
 
                     <form method="POST" action="/home/send">
-                      <p>
-                        <div class="input-group mb-3">
-                          <div class="input-group-prepend">
-                            <label class="input-group-text" for="inputGroupSelect01">Name</label>
-                          </div>
-                          <select class="custom-select" id="inputGroupSelect01 nameInput" name="name">
-                            <option >Choose...</option>
-                            <% for (let i = 0; i < profileIndex.length; i++) { %>
-                              <option ><%=profileIndex[i].name%></option>
-                          <% } %>
-                          </select>
-                        </div>
-                      </p>
+
+
 
                       <p>
                         <p>Add gift limit aount here</p>
