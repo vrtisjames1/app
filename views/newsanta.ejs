@@ -40,14 +40,28 @@
                                 <div class="input-group-prepend">
                                 <label class="input-group-text" for="inputGroupSelect01"><b><%=profileIndex[i].name%></b>: Partner Restriction</label>
                                 </div>
+
+                                <!-- submit form when change is made -->
                                 <select class="custom-select" id="inputGroupSelect01" name="spouse" onchange="this.form.submit()">
+
+                                    <!-- add current spouse as defualt with None -->
                                 <option ><%=profileIndex[i].spouse%></option>
-                                <% for (let i = 0; i < profileIndex.length; i++) { %>
-                                    <option ><%=profileIndex[i].name%></option>
+                                <!-- create dropdown list of possible partner names. Exclude the name of the person on the list -->
+                                <% for (let j = 0; j < profileIndex.length; j++) { %>
+                                  <%  if(profileIndex[j].name == profileIndex[i].name) { %>
+
+                                  <% }  else { %>
+                                    <option ><%=profileIndex[j].name%></option>
+                                <%  } %>
+                                    
                                 <% } %>
-                                <option >None</option>
+                                <!-- Keep option of "None" avaliable in case there needs to be changes later. -->
+                                <% if(profileIndex[i].spouse != "None") { %>
+                                    <option >None</option>
+                                    <% } %>
                                 </select>
                             </div>
+                            
                             <!-- Submit button -->
                                 <div id="submit">
                                     <noscript><input type="submit" value="Submit"/></noscript>
