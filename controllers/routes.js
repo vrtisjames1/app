@@ -162,11 +162,11 @@ router.post('/', (req, res)=>{
 
       if(error){
         if (error.keyPattern.name == 1) {
-          // console.log(error);
+
           errmsg = `Duplicate name. Please choose a new name.`;
           res.redirect("/home/new");
         } else if (error.keyPattern.email == 1){
-          // console.log(error);
+
           errmsg = `Duplicate email. Please input a new email.`;
           res.redirect("/home/new");
         } 
@@ -256,49 +256,64 @@ matchArray = []
 start();
 
 const partners = () =>{
-quit = 0;
+  quit = 0;
+  ////////////////////
+    for (let i = 0; i < profileList.length; i++) { 
 
-////////////////////
-  for (let i = 0; i < profileList.length; i++) { 
-    while((matchArray[i] === array[i].name) || (matchArray[i] === array[i].spouse)){
-      quit ++
-      let num = null;
-      
-      num = Math.floor(Math.random()* nameArray.length);
+      // run through loop until match array does not equal the persons name or spouse
+        while((matchArray[i] === array[i].name) || (matchArray[i] === array[i].spouse)){
 
-      matchArray[i] = nameArray[num];
+          // exit condition
+          quit ++
+          let num = null;
+          
+          // create random index number
+          num = Math.floor(Math.random()* nameArray.length);
     
-      // console.log(matchArray)
+          // set matcharray index equal to the new name array index
+          matchArray[i] = nameArray[num];
+        
+          // have exit condition
+          if (quit === 50){
+            return;
+          }
+          }
 
-      if (quit === 50){
-        return;
+          // import the partner from the matach array
+            array[i].partner = matchArray[i]
+            console.log(array)
+
+            // remove the name from the name array
+            nameArray.splice(nameArray.indexOf((matchArray[i])), 1)
       }
-      }
-        array[i].partner = matchArray[i]
-        console.log(array)
-        nameArray.splice(nameArray.indexOf((matchArray[i])), 1)
     }
-  } 
 
 partners();
 
 // =======================================
+// While loop to cycle back through if error
+// =======================================
+while (array[profileList.length - 1].partner == undefined || array[profileList.length - 1].partner == null){
+  start();
+  partners();
+  }
+// =======================================
 // end of secret santa code
 // =======================================
+
+
 // =======================================
 // posting results message
 // =======================================
 let results = null;
-
-
-
 if ((matchArray[profileList.length - 1] == array[profileList.length - 1].name) || (matchArray[profileList.length - 1] == array[profileList.length - 1].spouse))
 {
   partners();
   results = `Click "Draw Again"
 (The system isn't perfect and may need you to draw for names multiple times)`;
-} else {
-  results = 'Congrats the name has been decided. Click "NEXT" to email results'
+} 
+else {
+  results = 'Congrats the name has been decided, but they are a secret! Click "NEXT" to email the results'
 }
 
 res.locals.results = results;
