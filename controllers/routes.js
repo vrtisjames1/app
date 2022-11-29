@@ -146,10 +146,7 @@ router.post('/', (req, res)=>{
   req.body.wishList = req.body.wishList.split(",")
     req.body.spouse = "None";
   if(req.body.image == "" ){
-    req.body.image = "https://i.imgur.com/tdi3NGa.png";
-      }
-  if(req.body.image == "" ){
-    req.body.image = "https://i.imgur.com/tdi3NGa.png";
+    req.body.image = "https://i.imgur.com/dO6kclw.jpg";
       }
 
   let username = req.body.name;
@@ -353,7 +350,7 @@ router.put('/:id', (req, res)=>{
     req.body.spouse = "none";
       }
   if(req.body.image == "" ){
-    req.body.image = "https://i.imgur.com/tdi3NGa.png";
+    req.body.image = "https://i.imgur.com/dO6kclw.jpg";
       }
   req.body.wishList = req.body.wishList.split(",")
   profile.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedModel)=>{
