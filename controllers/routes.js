@@ -281,7 +281,7 @@ const partners = () =>{
           matchArray[i] = nameArray[num];
         
           // have exit condition
-          if (quit === 70){
+          if (quit === 200){
             return;
             }
           }
@@ -309,7 +309,7 @@ partners();
 
       // generate message
      if (array[profileList.length - 1].partner == undefined || array[profileList.length - 1].partner == null){
-      results = `There may be a problem trying to match partners with the given partner contraints. Please double check your partner contraints and profiles to see if you recognize why we are unable to match someone with a partner. Otherwise, click "DRAW AGAIN".`;
+      results = `There may be a problem trying to match partners with the given partner constraints. Please double check your partner constraints and profiles to see if you recognize why we are unable to match someone with a partner. Otherwise, click "DRAW AGAIN".`;
      } else {
       results = 'Congrats the name has been decided, but they are a secret! Click "NEXT" to email the results.'
      }
