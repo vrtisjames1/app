@@ -226,8 +226,17 @@ router.get(`/results`, (req, res)=> {
 
 let matchArray = null;
 let nameArray = null;
+// =======================================
+// while loop exit conditions
+// =======================================
 let quit = null;
+let quit2 = null;
+
 messageboard = null;
+// =======================================
+// posting results message
+// =======================================
+let results = null;
 
 array = [] 
 for (let i = 0; i < profileList.length; i++) { 
@@ -254,7 +263,8 @@ start();
 
 const partners = () =>{
   quit = 0;
-  ////////////////////
+  quit2 = 0;
+  
     for (let i = 0; i < profileList.length; i++) { 
 
       // run through loop until match array does not equal the persons name or spouse
@@ -271,11 +281,10 @@ const partners = () =>{
           matchArray[i] = nameArray[num];
         
           // have exit condition
-          if (quit === 50){
+          if (quit === 70){
             return;
+            }
           }
-          }
-
           // import the partner from the matach array
             array[i].partner = matchArray[i]
             console.log(array)
@@ -287,36 +296,29 @@ const partners = () =>{
 
 partners();
 
-// =======================================
-// While loop to cycle back through if error
-// =======================================
-while (array[profileList.length - 1].partner == undefined || array[profileList.length - 1].partner == null){
-  start();
-  partners();
-  }
-// =======================================
-// end of secret santa code
-// =======================================
+     // New while condition to check for last name in index
+     while (array[profileList.length - 1].partner == undefined || array[profileList.length - 1].partner == null){
+      quit2 = 0;
+      start();
+      partners();
+      // quit condition
+      if (quit2 === 50){
+        return;
+        }
+      }
+
+      // generate message
+     if (array[profileList.length - 1].partner == undefined || array[profileList.length - 1].partner == null){
+      results = `There may be a problem trying to match partners with the given partner contraints. Please double check your contraints and profiles to see if you recognize where the error may be. Otherwise, click "DRAW AGAIN".`;
+     } else {
+      results = 'Congrats the name has been decided, but they are a secret! Click "NEXT" to email the results'
+     }
 
 
-// =======================================
-// posting results message
-// =======================================
-let results = null;
-if ((matchArray[profileList.length - 1] == array[profileList.length - 1].name) || (matchArray[profileList.length - 1] == array[profileList.length - 1].spouse))
-{
-  partners();
-  results = `Click "Draw Again"
-(The system isn't perfect and may need you to draw for names multiple times)`;
-} 
-else {
-  results = 'Congrats the name has been decided, but they are a secret! Click "NEXT" to email the results'
-}
-
-res.locals.results = results;
 // =======================================
 // posting message
 // =======================================
+res.locals.results = results;
 
  // =======================================
 // render page

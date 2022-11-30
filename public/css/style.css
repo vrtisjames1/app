@@ -193,10 +193,9 @@ ul {
   }
 
 /* edit profile */
-#delete {
+.back-button-divider{
   display: flex;
-  flex-direction: row-reverse;
-  margin: 1em 1em 2em 1em;
+  justify-content: space-between;
 }
 
 /* Model design */
@@ -268,6 +267,9 @@ flex-direction: column;
 
 .input-group{
   max-width: 900px;
+}
+.edit-form-control{
+  max-width: 100%;
 }
 
 

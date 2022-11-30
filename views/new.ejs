@@ -22,7 +22,7 @@
     <div class="container-fluid">
 
         <div class="back-button-divider">
-            <a href="/home"><button class="btn btn-secondary back-button" >HOME</button></a>
+            <a href="/home"><button class="btn btn-success back-button" >HOME</button></a>
             </div>
         <div class="container-fluid">
             <h1>Add New Person</h1>
@@ -31,37 +31,37 @@
             <form class="new-person-container" action="/home" method="POST">
                 
                 <p><b>*Required</b> Add your first name! If your name already exists in the system then create a new username.</p>
-                <div class="input-group mb-3">
+                <div class="input-group mb-3 edit-form-control">
                     <span class="input-group-text spantext" id="inputGroup-sizing-default">Name</span>
                     <input class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" type="text"  name="name" placeholder="Name" autocomplete="off" id="nameInput"/><br/>
                 </div>
             <!-- Need to check if username already exists -->
 
 
-                 <div class="input-group mb-3">
+                 <div class="input-group mb-3 edit-form-control">
                     <span class="input-group-text spantext" id="inputGroup-sizing-default">Profile Image URL</span>
                     <input  class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" type="text" name="image"  placeholder="Upload photo to Imgur and right click image url link" autocomplete="off"/><br/>
                 </div>
 
-                <div class="input-group mb-3">
+                <div class="input-group mb-3 edit-form-control">
                     <span class="input-group-text spantext" id="inputGroup-sizing-default">WishList</span>
                     <input  class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" type="text" name="wishList" placeholder="Seperate items and links by using commas" autocomplete="off"/><br/>
                 </div>
 
              
-            <div class="input-group mb-3">
+            <div class="input-group mb-3 edit-form-control">
                 <span class="input-group-text spantext" id="inputGroup-sizing-default">Fun Fact</span>
                 <input  class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" type="text" name="funFact" placeholder="Fun Fact" autocomplete="off"/><br/>
             </div>
 
             
-            <div class="input-group mb-3">
+            <div class="input-group mb-3 edit-form-control">
                 <span class="input-group-text spantext" id="inputGroup-sizing-default">Favorite Christmas Song</span>
                 <input  class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" type="text" name="favSong" placeholder="Favorite Christmas Song" autocomplete="off"/><br/>
             </div>
 
             <b><p>*Required</b> You will be emailed your secret santa partner</p>
-            <div class="input-group mb-3">
+            <div class="input-group mb-3 edit-form-control">
                 <span class="input-group-text spantext" id="inputGroup-sizing-default">Email</span>
                      <input  class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" type="text" name="email" placeholder="email address" autocomplete="off"/><br/>
             </div>

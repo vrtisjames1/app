@@ -25,69 +25,11 @@
 <div class="container-fluid">
              <!-- Back button -->
             <div class="back-button-divider">
-                <a href="/home"><button class="btn btn-secondary back-button" >HOME</button></a>
-                </div>
+                <a href="/home"><button class="btn btn-success back-button" >HOME</button></a>
 
-            <h1>Edit <%=profileIndex.name%>'s Profile</h1>
-
-            <form class = "edit-form-container" action="/home/<%=profileIndex._id%>?_method=PUT" method="POST">
-                    <b><p>*Required</p></b>
-                    <div class="input-group mb-3">
-                        <span class="input-group-text spantext" id="inputGroup-sizing-default">Name</span>
-                        <input class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" type="text"  name="name" placeholder="Name" value="<%=profileIndex.name%>" /><br/>
-                    </div>
-
-                
-                    <div class="input-group mb-3">
-                        <span class="input-group-text spantext" id="inputGroup-sizing-default">Spouse</span>
-                        <input list="spouses" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" type="text"  name="spouse" placeholder="Secret Santa partner restriction" value="<%=profileIndex.spouse%>"/><br/>
-                        <datalist id="spouses">
-                            <% for (let i = 0; i < profileIndex.length; i++) { %>
-                                <option><%=profileIndex[i].name%></option>
-                            <% } %>
-                          </datalist>
-                    </div>
-
-                
-                     <div class="input-group mb-3">
-                        <span class="input-group-text spantext" id="inputGroup-sizing-default">Profile Image URL</span>
-                        <input  class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" type="text" name="image"  placeholder="Upload photo to Imgur and right click image url link" value="<%=profileIndex.image%>"/><br/>
-                    </div>
-
-                    <p>Seperate wishlist items and links by using a comma</p>
-                    <div class="input-group mb-3">
-                        <span class="input-group-text spantext" id="inputGroup-sizing-default">WishList</span>
-                        <input  class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" type="text" name="wishList" placeholder="Seperate items and links by using a comma" value="<%=profileIndex.wishList%>"/><br/>
-                    </div>
-
-                 
-                <div class="input-group mb-3">
-                    <span class="input-group-text spantext" id="inputGroup-sizing-default">Fun Fact</span>
-                    <input  class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" type="text" name="funFact" placeholder="Fun Fact" value="<%=profileIndex.funFact%>"/><br/>
-                </div>
-
-                
-                <div class="input-group mb-3">
-                    <span class="input-group-text spantext" id="inputGroup-sizing-default">Favorite Christmas Song</span>
-                    <input  class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" type="text" name="favSong" placeholder="Favorite Christmas Song" value="<%=profileIndex.favSong%>"/><br/>
-                </div>
-
-                <b><p>*Required</p></b>
-                <div class="input-group mb-3">
-                    <span class="input-group-text spantext" id="inputGroup-sizing-default">Email</span>
-                         <input  class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" type="text" name="email" placeholder="email address" value="<%=profileIndex.email%>"/><br/>
-                </div>
-                
-                <!-- Submit button -->
-                <div id="submit">
-                        <input class="btn btn-primary" id="submit" type="submit" value="SUBMIT"/>
-                </div>
-            </form>
-
-
-            <!-- delete button -->
+                           <!-- delete button -->
             <div id="delete">
-                <button class="btn btn-danger btn-sm delete">Delete Profile</button>
+                <button class="btn btn-secondary delete">Delete Profile</button>
                                  <!-- model text box -->  
                                  <div id="model">
                                     <div id="modalText">
@@ -101,7 +43,7 @@
                                                 </form>
                                             </div>
                                             <div id="noDelte">
-                                                <button class="close btn btn-primary btn-lg" href=""> No</button>
+                                                <button class="close btn btn-success btn-lg" href=""> No</button>
                                             </div>
                                             
                                         </div>
@@ -109,6 +51,55 @@
                                 </div>
                             <!-- end of model -->
             </div>
+
+
+            </div>
+            <h1>Edit <%=profileIndex.name%>'s Profile</h1>
+            <form class = "edit-form-container" action="/home/<%=profileIndex._id%>?_method=PUT" method="POST">
+                    <b><p>*Required</p></b>
+                    <div class="input-group mb-3 edit-form-control">
+                        <span class="input-group-text spantext" id="inputGroup-sizing-default">Name</span>
+                        <input class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" type="text"  name="name" placeholder="Name" value="<%=profileIndex.name%>" /><br/>
+                    </div>
+
+                
+                     <div class="input-group mb-3 edit-form-control">
+                        <span class="input-group-text spantext" id="inputGroup-sizing-default">Profile Image URL</span>
+                        <input  class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" type="text" name="image"  placeholder="Upload photo to Imgur and right click image url link" value="<%=profileIndex.image%>"/><br/>
+                    </div>
+
+                    <p>Seperate wishlist items and links by using a comma</p>
+                    <div class="input-group mb-3 edit-form-control">
+                        <span class="input-group-text spantext" id="inputGroup-sizing-default">WishList</span>
+                        <input  class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" type="text" name="wishList" placeholder="Seperate items and links by using a comma" value="<%=profileIndex.wishList%>"/><br/>
+                    </div>
+
+                 
+                <div class="input-group mb-3 edit-form-control">
+                    <span class="input-group-text spantext" id="inputGroup-sizing-default">Fun Fact</span>
+                    <input  class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" type="text" name="funFact" placeholder="Fun Fact" value="<%=profileIndex.funFact%>"/><br/>
+                </div>
+
+                
+                <div class="input-group mb-3 edit-form-control">
+                    <span class="input-group-text spantext" id="inputGroup-sizing-default">Favorite Christmas Song</span>
+                    <input  class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" type="text" name="favSong" placeholder="Favorite Christmas Song" value="<%=profileIndex.favSong%>"/><br/>
+                </div>
+
+                <b><p>*Required</p></b>
+                <div class="input-group mb-3 edit-form-control">
+                    <span class="input-group-text spantext" id="inputGroup-sizing-default">Email</span>
+                         <input  class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" type="text" name="email" placeholder="email address" value="<%=profileIndex.email%>"/><br/>
+                </div>
+                
+                <!-- Submit button -->
+                <div id="submit">
+                        <input class="btn btn-primary" id="submit" type="submit" value="SUBMIT"/>
+                </div>
+            </form>
+
+
+ 
 </div>
 </body>
 </html>

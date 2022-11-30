@@ -29,6 +29,7 @@ router.get(`/`, (req, res)=> {
   
   router.put('/:id', (req, res)=>{  
     profile.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedModel)=>{
+      res.redirect(`/partners`);
         // res.redirect(`/home`);
     });
   });
