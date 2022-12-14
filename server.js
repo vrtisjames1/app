@@ -7,7 +7,9 @@ const methodOverride = require('method-override');
 const exphbs = require('express-handlebars');
 const nodemailer = require('nodemailer');
 const bodyParser = require('body-parser');
-const session = require('express-session');
+// const session = require('cookie-session');
+
+const session = require('cookie-session');
 const dotenv = require('dotenv').config()
 
 
